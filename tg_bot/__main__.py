@@ -51,11 +51,12 @@ You can find the list of available commands with /help.
 HELP_STRINGS = f"""
 
 *Main commands available*[:](https://telegra.ph/file/ce73ab56b1a357ef65af5.jpg)
- • /start: Starts me, can be used to check I'm alive or not.
- • /help: PM's you this message.
- • /settings:
-   - in PM: will send you your settings for all supported modules.
-   - in a group: will redirect you to pm, with all that chat's settings.
+
+ -> /start: Starts me, can be used to check I'm alive or not.
+ -> /help: PM's you this message.
+ -> /settings:
+   × in PM: will send you your settings for all supported modules.
+   × in a group: will redirect you to pm, with all that chat's settings.
  \nClick on the buttons below to get documentation about specific modules!"""
 
 
@@ -200,18 +201,14 @@ def start(update: Update, context: CallbackContext):
                         [
                             InlineKeyboardButton(
                                 text=gs(chat.id, "support_chat_link_btn"),
-                                url=f"https://t.me/YorktownEagleUnion",
+                                url=f"https://t.me/ZeroBotSupport",
                             ),
-                            InlineKeyboardButton(
-                                text=gs(chat.id, "updates_channel_link_btn"),
-                                url="https://t.me/KigyoUpdates",
-                            ),
-                        ],
-                        [
                             InlineKeyboardButton(
                                 text=gs(chat.id, "src_btn"),
                                 url="https://github.com/Dank-del/EnterpriseALRobot",
                             ),
+                        ],
+                        [
 
                              InlineKeyboardButton(
                                  text="Try inline mode",
@@ -627,7 +624,7 @@ def main():
             updater.bot.set_webhook(url=URL + TOKEN)
 
     else:
-        log.info("Kigyo started, Using long polling.")
+        log.info("Nobara started, Using long polling.")
         updater.start_polling(timeout=15, read_latency=4, drop_pending_updates=True)
     if len(argv) not in (1, 3, 4):
         telethn.disconnect()

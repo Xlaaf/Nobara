@@ -10,6 +10,7 @@ set_chat_lang: "Great, {} it is from now on!"
 
 
 pm_start_text: |
+
    Hi {}, my name is {}!
    I am an Anime themed group management bot with some fun extras ;)
    Try the buttons below to know how I work.
@@ -19,10 +20,11 @@ grp_start_text: "Hi, I'm Nobara."
 pm_help_text: |
 
    *Main commands available*[:](https://telegra.ph/file/ce73ab56b1a357ef65af5.jpg)
-    • /start: Starts me, can be used to check I'm alive or not.
-    • /help: PM's you this message.
-    • /language: Change bot language.
-    • /settings:
+   
+    -> /start: Starts me, can be used to check I'm alive or not.
+    -> /help: PM's you this message.
+    -> /language: Change bot language.
+    -> /settings:
       - in PM: will send you your settings for all supported modules.
       - in a group: will redirect you to pm, with all that chat's settings.
     Click on the buttons below to get documentation about specific modules!
@@ -33,6 +35,7 @@ updates_channel_link_btn: "Updates"
 src_btn: "Source code"
 
 admin_help: |
+
    • `/admins`*:* list of admins in the chat
 
    *Admins only:*
@@ -44,11 +47,13 @@ admin_help: |
    • `/title <title here>`*:* sets a custom title for an admin that the bot promoted
 
 afk_help: |
+
    - /afk <reason>: mark yourself as AFK(away from keyboard).
    - brb <reason>: same as the afk command - but not a command.
    When marked as AFK, any mentions will be replied to with a message to say you're not available!
 
 anilist_help: |
+
     *AniList*
     Get information about anime, manga or characters with the help of this module! All data is fetched from [AniList](anilist.co).
     *Available commands:*
@@ -57,6 +62,7 @@ anilist_help: |
      - /manga <manga>: returns information about the manga.
 
 antiflood_help: |
+
     Antiflood allows you to take action on users that send more than x messages in a row. Exceeding the set flood
     will result in restricting that user.
      This will mute users if they send more than 10 messages in a row, bots are ignored.
@@ -74,6 +80,7 @@ antiflood_help: |
      `1w` = 1 week
 
 approve_help: |
+
      Sometimes, you might trust a user not to send unwanted content.
      Maybe not enough to make them admin, but you might be ok with locks, blacklists, and antiflood not applying to them.
      That's what approvals are for - approve of trustworthy users to allow them to send
@@ -85,12 +92,14 @@ approve_help: |
      • `/unapproveall`*:* Unapprove *ALL* users in a chat. This cannot be undone.
 
 backup_help: |
+
     *Admin only:*
      - /import: reply to a group butler backup file to import as much as possible, making the transfer super simple! Note \
        that files/photos can't be imported due to telegram restrictions.
      - /export: !!! This isn't a command yet, but should be coming soon!
 
 bans_help: |
+
     - /kickme: kicks the user who issued the command
 
      *Admin only:*
@@ -100,6 +109,7 @@ bans_help: |
     - /kick <userhandle>: kick a user out of the group, (via handle, or reply)
 
 blacklist_help: |
+
     Blacklists are used to stop certain triggers from being said in a group. Any time the trigger is mentioned, the message will immediately be deleted. A good combo is sometimes to pair this up with warn filters!
 
     *NOTE*: Blacklists do not affect group admins.
@@ -112,12 +122,14 @@ blacklist_help: |
      • `/blacklistmode <off/del/warn/ban/kick/mute/tban/tmute>`*:* Action to perform when someone sends blacklisted words.
 
 cleaner_help: |
+
     - /cleanbluetext <on/off/yes/no> - clean commands after sending
     - /ignorecleanbluetext <word> - prevent auto cleaning of the command
     - /unignorecleanbluetext <word> - remove prevent auto cleaning of the command
     - /listcleanbluetext - list currently whitelisted commands
 
 connections_help: |
+
     - /connect: connect a chat (Can be done in a group by /connect or /connect <chat id> in PM)
     - /connection: list connected chats
     - /disconnect: disconnect from a chat
@@ -127,6 +139,7 @@ connections_help: |
     - /allowconnect <yes/no>: allow a user to connect to a chat
 
 cust_filters_help: |
+
     • `/filters`*:* List all active filters saved in the chat.
 
      *Admin only:*
@@ -143,6 +156,7 @@ cust_filters_help: |
         Check `/markdownhelp` to know more!
 
 disable_help: |
+
     Not everyone wants every feature that the bot offers. Some commands are best
     left unused; to avoid spam and abuse.
 
@@ -157,6 +171,7 @@ disable_help: |
      • /listcmds: List all possible disablable commands
 
 feds_help: |
+
     Ah, group management. Everything is fun, until the spammer starts entering your group, and you have to block it. Then you need to start banning more, and more, and it hurts.
     But then you have many groups, and you don't want this spammer to be in one of your groups - how can you deal? Do you have to manually block it, in all your groups?
 
@@ -184,6 +199,7 @@ feds_help: |
      • /importfbans: Reply to the Federation backup message file to import the banned list to the Federation now. (disabled for now.)
 
 fun_help: |
+
      • /runs: reply a random string from an array of replies.
      • /pat: pat a person, cool thing to have for cute ones :3
      • /slap: slap a user, or get slapped if not a reply.
@@ -200,6 +216,7 @@ fun_help: |
      • /stickers: search stickers in combot sticker finder.
 
 antispam_help: |
+
      *Admins only:*
       • `/antispam <on/off/yes/no>`*:* Will toggle our antispam tech or return your current settings.
 
@@ -218,6 +235,7 @@ antispam_help: |
      Uses @Intellivoid's Coffeehouse Artificial Engine. Every ban is checked by real trusty people before being finalized.
 
 gtranslate_help: |
+
      Use this module to translate stuff... duh!
      *Commands:*
      • `/tl` (or `/tr`): as a reply to a message, translates it to English.
@@ -226,7 +244,9 @@ gtranslate_help: |
      • `/tl <source>//<dest>`: translates from <source> to <lang>.
      eg: `/tl ja//en`: translates from Japanese to English.
      • `/langs`: get a list of supported languages for translation.
+     
 locks_help: |
+
      Do stickers annoy you? or want to avoid people sharing links? or pictures?
      You're in the right place!
      The locks module allows you to lock away some common items in the
@@ -250,6 +270,7 @@ locks_help: |
       • Unlocking permission *pin* will allow members (non-admins) to pinned a message in a group
 
 log_help: |
+
       *Admins only:*
       • `/logchannel`*:* get log channel info
       • `/setlog`*:* set the log channel.
@@ -261,6 +282,7 @@ log_help: |
       • forwarding the `/setlog` to the group
 
 markdown_help_text: |
+
       Markdown is a very powerful formatting tool supported by telegram. Nobara has some enhancements, to make sure that
       saved messages are correctly parsed, and to allow you to create buttons.
 
@@ -284,6 +306,7 @@ markdown_help_text: |
       Keep in mind that your message <b>MUST</b> contain some text other than just a button!
 
 misc_help: |
+
       • /id: get the current group id. If used by replying to a message, gets that user's id.
       • /gifid: reply to a gif to me to tell you its file ID.
       • /info: get information about a user.
@@ -309,12 +332,14 @@ misc_help: |
       • /lastfm: returns what you're scrobbling on last.fm.
 
 muting_help: |
+
       *Admins only:*
        • `/mute <userhandle>`*:* silences a user. Can also be used as a reply, muting the replied to user.
        • `/tmute <userhandle> x(m/h/d)`*:* mutes a user for x time. (via handle, or reply). `m` = `minutes`, `h` = `hours`, `d` = `days`.
        • `/unmute <userhandle>`*:* unmutes a user. Can also be used as a reply, muting the replied to user.
 
 notes_help: |
+
        • `/get <notename>`*:* get the note with this notename
        • `#<notename>`*:* same as /get
        • `/notes` or `/saved`*:* list all saved notes in this chat
@@ -332,12 +357,14 @@ notes_help: |
        *Note:* Note names are case-insensitive, and they are automatically converted to lowercase before getting saved.
 
 purge_help: |
+
        *Admin only:*
         • /del: deletes the message you replied to
         • /purge: deletes all messages between this and the replied to message.
         • /purge <integer X>: deletes the replied message, and X messages following it if replied to a message.
 
 reports_help: |
+
         • `/report <reason>`*:* reply to a message to report it to admins.
         • `@admin`*:* reply to a message to report it to admins.
          *NOTE:* Neither of these will get triggered if used by admins.
@@ -348,18 +375,21 @@ reports_help: |
           • If in group, toggles that groups's status.
 
 rules_help: |
+
       • `/rules`*:* get the rules for this chat.
        *Admins only:*
       • `/setrules <your rules here>`*:* set the rules for this chat.
       • `/clearrules`*:* clear the rules for this chat.
 
 userinfo_help: |
+
       - /setbio <text>: while replying, will save another user's bio
       - /bio: will get your or another user's bio. This cannot be set by yourself.
       - /setme <text>: will set your info
       - /me: will get your or another user's info
 
 warns_help: |
+
       • `/warns <userhandle>`*:* get a user's number, and reason, of warns.
       • `/warnlist`*:* list of all current warning filters
 
@@ -373,6 +403,7 @@ warns_help: |
       • `/strongwarn <on/yes/off/no>`*:* If set to on, exceeding the warn limit will result in a ban. Else, will just kick.
 
 greetings_help: |
+
       *Admins only:*
        • `/welcome <on/off>`*:* enable/disable welcome messages.
        • `/welcome`*:* shows current welcome settings.
@@ -392,6 +423,7 @@ greetings_help: |
        • `/welcomehelp`*:* view more formatting information for custom welcome/goodbye messages.
 
 nation_help: |
+
       - /eagle - Lists all Eagle Union members.
       - /royals - Lists all Royal Nations.
       - /sakuras - Lists all Sakura Nations.
