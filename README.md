@@ -14,7 +14,7 @@
 ![Repository Size](https://img.shields.io/github/repo-size/Ryomen-Sukuna/Nobara?style=for-the-badge&logo=appveyor)</br>
 
 
-[![Join Support!](https://img.shields.io/badge/Support%20Chat-EagleUnion-red)](https://t.me/YorktownEagleUnion)
+[![Join Support!](https://img.shields.io/badge/Support%20Chat-ZeroUnion-red)](https://t.me/YorktownZeroUnion)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/cfb691a93a064d9ea753ef2b5fccf797)](https://www.codacy.com/manual/Ryomen-Sukuna/Nobara?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Ryomen-Sukuna/Nobara&amp;utm_campaign=Badge_Grade)
 
 
@@ -43,7 +43,7 @@ The Support group can be reached out to at [Zero Union](https://t.me/ZeroBotSupp
 *Enjoy!*
 
 
-For queries or any issues regarding the bot please open an issue ticket or visit us at [Eagle Union](https://t.me/YorktownEagleUnion)  
+For queries or any issues regarding the bot please open an issue ticket or visit us at [Zero Union](https://t.me/ZeroBotSupport)  
 
 ## Credits
 The bot is based of on the original work done by [PaulSonOfLars](https://github.com/PaulSonOfLars)

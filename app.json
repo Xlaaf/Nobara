@@ -1,16 +1,16 @@
 
 {
-  "name": "Sukuna",
-  "logo": "https://telegra.ph/file/9f44458a5f632dcb8c0a5.jpg",
+  "name": "Nobara",
+  "logo": "https://telegra.ph/file/0d3faf21108398f019feb.jpg",
   "description": "Telegram's sassiest group manager. Modular Telegram group management bot!",
   "keywords": [
     "telegram",
     "best",
     "group",
     "manager",
-    "Sukuna"
+    "Nobara"
   ],
-  "repository": "hhttps://github.com/Ryomen-Sukuna/Sukuna",
+  "repository": "hhttps://github.com/Ryomen-Nobara/Nobara",
   "env": {
     "ENV": {
       "description": "Setting this to ANYTHING will enable env variables",
