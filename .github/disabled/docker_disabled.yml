@@ -1,0 +1,37 @@
+name:  BuildDocker
+
+on:
+
+  push:
+
+    branches: [ kugisaki ]
+
+  pull_request:
+
+    branches: [ kugisaki ]
+
+jobs:
+
+  build:
+
+   runs-on: ubuntu-20.04
+
+   steps:
+
+      - uses: actions/checkout@master
+      - run:  bash exp.sh
+      - uses: elgohr/Publish-Docker-Github-Action@master
+
+        with:
+
+          name:  ryomen-sukuna/nobara
+
+          username: ${{ secrets.DOCKER_USERNAME }}
+
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+          dockerfile: Dockerfile
+
+          buildoptions: --force-rm --compress --no-cache --squash
+
+          tags: "kugisaki"

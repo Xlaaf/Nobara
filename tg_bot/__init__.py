@@ -23,15 +23,15 @@ logging.basicConfig(handlers=[RichHandler()], level=logging.INFO, format=FORMAT,
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 log = logging.getLogger("rich")
 
-log.info("[KIGYO] Kigyo is starting. | An Eagle Union Project. | Licensed under GPLv3.")
+log.info("[NOBARA] NOBARA is starting. | An Zero Union Project. | Licensed under GPLv3.")
 
-log.info("[KIGYO] Not affiliated to Azur Lane or Yostar in any way whatsoever.")
-log.info("[KIGYO] Project maintained by: github.com/Dank-del (t.me/dank_as_fuck)")
+log.info("[NOBARA] Not affiliated to Azur Lane or Yostar in any way whatsoever.")
+log.info("[NOBARA] Project maintained by: github.com/Ryomen-Sukuna (t.me/Anomaliii)")
 
 # if version < 3.6, stop bot.
 if sys.version_info[0] < 3 or sys.version_info[1] < 7:
     log.error(
-        "[KIGYO] You MUST have a python version of at least 3.7! Multiple features depend on this. Bot quitting."
+        "[NOBARA] You MUST have a python version of at least 3.7! Multiple features depend on this. Bot quitting."
     )
     quit(1)
 
@@ -99,7 +99,7 @@ updater = tg.Updater(TOKEN, workers=min(32, os.cpu_count() + 4), request_kwargs=
 telethn = TelegramClient(MemorySession(), APP_ID, API_HASH)
 dispatcher = updater.dispatcher
 
-kp = Client("KigyoPyro", api_id=APP_ID, api_hash=API_HASH, bot_token=TOKEN, workers=min(32, os.cpu_count() + 4))
+kp = Client("KugisakiPyro", api_id=APP_ID, api_hash=API_HASH, bot_token=TOKEN, workers=min(32, os.cpu_count() + 4))
 apps = []
 apps.append(kp)
 

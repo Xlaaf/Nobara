@@ -1,9 +1,3 @@
-'''#TODO
-
-Dank-del
-2020-12-29
-'''
-
 import importlib
 import re
 import json
@@ -67,7 +61,7 @@ the things I can help you with.
  \nClick on the buttons below to get documentation about specific modules!"""
 
 
-KIGYO_IMG = "https://telegra.ph/file/e5100e06c03767af80023.jpg"
+NOBARA_IMG = "https://telegra.ph/file/0d3faf21108398f019feb.jpg"
 
 
 IMPORTED = {}
@@ -179,7 +173,7 @@ def start(update: Update, context: CallbackContext):
         else:
             first_name = update.effective_user.first_name
             update.effective_message.reply_photo(
-                photo=KIGYO_IMG,
+                photo=NOBARA_IMG,
                 caption=gs(chat.id, "pm_start_text").format(
                     escape_markdown(first_name),
                     escape_markdown(context.bot.first_name),
