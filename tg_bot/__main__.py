@@ -61,7 +61,7 @@ the things I can help you with.
  \nClick on the buttons below to get documentation about specific modules!"""
 
 
-NOBARA_IMG = "https://telegra.ph/file/0d3faf21108398f019feb.jpg"
+NOBARA_IMG = "https://telegra.ph/file/20c495e8434993e8eddf0.jpg"
 
 
 IMPORTED = {}

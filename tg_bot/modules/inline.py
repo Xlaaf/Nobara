@@ -49,16 +49,16 @@ def inlinequery(update: Update, _) -> None:
             "keyboard": ".spb ",
         },
         {
-            "title": "User info on Kigyo",
-            "description": "Look up a person in Kigyo database",
-            "message_text": "Click the button below to look up a person in Kigyo database using their Telegram ID",
+            "title": "User info on Nobara",
+            "description": "Look up a person in Nobara database",
+            "message_text": "Click the button below to look up a person in Nobara database using their Telegram ID",
             "thumb_urL": "https://telegra.ph/file/c85e07b58f5b3158b529a.jpg",
             "keyboard": ".info ",
         },
         {
             "title": "About",
-            "description": "Know about Kigyo",
-            "message_text": "Click the button below to get to know about Kigyo.",
+            "description": "Know about Nobara",
+            "message_text": "Click the button below to get to know about Nobara.",
             "thumb_urL": "https://telegra.ph/file/c85e07b58f5b3158b529a.jpg",
             "keyboard": ".about ",
         },
@@ -217,7 +217,7 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
     user = context.bot.get_chat(user_id)
     sql.update_user(user.id, user.username)
     about_text = f"""
-    Kigyo (@{context.bot.username})
+    Nobara (@{context.bot.username})
     Maintained by [Dank-del](t.me/dank_as_fuck)
     Built with ❤️ using python-telegram-bot v{str(__version__)}
     Running on Python {python_version()}
@@ -228,19 +228,15 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
             [
                 InlineKeyboardButton(
                     text="Support",
-                    url=f"https://t.me/YorktownEagleUnion",
+                    url=f"https://t.me/ZeroBotSupport",
                 ),
                 InlineKeyboardButton(
                     text="Channel",
-                    url=f"https://t.me/KigyoUpdates",
+                    url=f"https://t.me/NobaraUpdates",
                 ),
 
             ],
             [
-                InlineKeyboardButton(
-                    text="GitLab",
-                    url=f"https://www.gitlab.com/Dank-del/EnterpriseALRobot",
-                ),
                 InlineKeyboardButton(
                     text="GitHub",
                     url="https://www.github.com/Dank-del/EnterpriseALRobot",
@@ -253,7 +249,7 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
         InlineQueryResultArticle
             (
             id=str(uuid4()),
-            title=f"About Kigyo (@{context.bot.username})",
+            title=f"About Nobara (@{context.bot.username})",
             input_message_content=InputTextMessageContent(about_text, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True),
             reply_markup=kb
             )
