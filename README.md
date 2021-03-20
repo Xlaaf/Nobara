@@ -1,5 +1,5 @@
 ![Kugisaki Nobara](https://telegra.ph/file/0d3faf21108398f019feb.jpg)
-# Nobara bot // @NobaraRobot
+# Nobara // @NobaraRobot
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/Skuzzy_xD/)</br>
