@@ -330,6 +330,15 @@ misc_help: |
       • /setuser <username>: sets your last.fm username.
       • /clearuser: removes your last.fm username from the bot's database.
       • /lastfm: returns what you're scrobbling on last.fm.
+      
+music_help: |      
+
+      *You can either enter just the song name or both the artist and song
+      name. *
+      
+      • /song <songname artist(optional)>: uploads the song in it's best quality available
+      • /video <songname artist(optional)>: uploads the video song in it's best quality available
+      • /lyrics <song>: returns the lyrics of that song.
 
 muting_help: |
 
