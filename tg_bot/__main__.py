@@ -49,10 +49,8 @@ You can find the list of available commands with /help.
 """
 
 HELP_STRINGS = f"""
-Hello there! My name is *{dispatcher.bot.first_name}*. A part of *Eagle Union*.
-I'm a modular group management bot with a few fun extras! Have a look at the following for an idea of some of \
-the things I can help you with.
-*Main* commands available:
+
+*Main commands available*[:](https://telegra.ph/file/ce73ab56b1a357ef65af5.jpg)
  • /start: Starts me, can be used to check I'm alive or not.
  • /help: PM's you this message.
  • /settings:

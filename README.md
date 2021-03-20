@@ -45,9 +45,11 @@ The Support group can be reached out to at [Zero Union](https://t.me/ZeroBotSupp
 
 For queries or any issues regarding the bot please open an issue ticket or visit us at [Zero Union](https://t.me/ZeroBotSupport)  
 
-## Credits
-The bot is based of on the original work done by [PaulSonOfLars](https://github.com/PaulSonOfLars)
-This repo was just reamped to suit an Anime-centric community. All original credits go to Paul and his dedication, Without his efforts, this fork would not have been possible!
-
-
-Should any be missing kindly let us know at [Zero Union](https://t.me/ZeroBotSupport) or simply submit a pull request on the readme.
+## Credits 📍
++ [Dank-Del](https://github.com/Dank-del) for base this bot
++ [TsunayoshiSawada](https://github.com/SawadaTsunayoshi) 
++ [Userbotindo](https://github.com/userbotindo)
++ [Saber](https://github.com/hyper-ub/saber)
++ [IGRIS_BOT](https://github.com/HellxGodLike/IGRIS_BOT)
++ Well, it's all in the commit history 
+Feel free to open pull requests should any be missing.
