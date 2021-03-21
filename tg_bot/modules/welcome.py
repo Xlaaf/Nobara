@@ -13,6 +13,7 @@ from tg_bot import (
     SUPPORT_USERS,
     SARDEGNA_USERS,
     WHITELIST_USERS,
+    MESSAGE_DUMP
     sw,
     dispatcher,
 )
@@ -236,8 +237,18 @@ def new_member(update: Update, context: CallbackContext):
             # Welcome yourself
             elif new_mem.id == bot.id:
                 update.effective_message.reply_text(
-                    "Thanks for adding me! Join @YorkTownEagleUnion for support.",
+                    "Hey  {}, I'm {}! Thank you for adding me to {}".format(
+                        user.first_name, bot.first_name, html.escape(chat.title)
+                    ),
                     reply_to_message_id=reply,
+                )
+
+                bot.send_message(
+                    MESSAGE_DUMP,
+                        "#NEW_GROUP\n<b>Group name:</b> {}\n<b>ID:</b> <code>{}</code>".format(
+                            html.escape(chat.title), chat.id
+                        ),
+                        parse_mode=ParseMode.HTML,
                 )
                 continue
 
