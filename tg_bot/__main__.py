@@ -57,10 +57,10 @@ HELP_STRINGS = f"""
  -> /settings:
    × in PM: will send you your settings for all supported modules.
    × in a group: will redirect you to pm, with all that chat's settings.
- \nClick on the buttons below to get documentation about specific modules!"""
+\nClick on the buttons below to get documentation about specific modules!"""   
+   
 
-
-NOBARA_IMG = "https://telegra.ph/file/20c495e8434993e8eddf0.jpg"
+NOBARA_IMG = "https://i.ibb.co/PFk8PYm/0996c547506b80696f5091dc4829bfe0.gif"
 
 
 IMPORTED = {}
@@ -171,8 +171,8 @@ def start(update: Update, context: CallbackContext):
 
         else:
             first_name = update.effective_user.first_name
-            update.effective_message.reply_photo(
-                photo=NOBARA_IMG,
+            update.effective_message.reply_animation(
+                animation=NOBARA_IMG,
                 caption=gs(chat.id, "pm_start_text").format(
                     escape_markdown(first_name),
                     escape_markdown(context.bot.first_name),

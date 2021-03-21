@@ -1,38 +1,52 @@
 import requests
+import codecs
 from tg_bot import dispatcher
 from tg_bot.modules.disable import DisableAbleCommandHandler
+from tg_bot.modules.helper_funcs.alternate import send_action, typing_action
 from telegram import ParseMode, Update
 from telegram.ext import CallbackContext
 
 
-def paste(update: Update, context: CallbackContext):
-    args = context.args
-    message = update.effective_message
+@typing_action
+def paste(update, context):
+    msg = update.effective_message
 
-    if message.reply_to_message:
-        data = message.reply_to_message.text
-
-    elif len(args) >= 1:
-        data = message.text.split(None, 1)[1]
-
+    if msg.reply_to_message and msg.reply_to_message.document:
+        file = context.bot.get_file(msg.reply_to_message.document)
+        file.download("file.txt")
+        text = codecs.open("file.txt", "r+", encoding="utf-8")
+        paste_text = text.read()
+        link = (
+            post(
+                "https://nekobin.com/api/documents",
+                json={"content": paste_text},
+            )
+            .json()
+            .get("result")
+            .get("key")
+        )
+        text = "**Pasted to Nekobin!!!**"
+        buttons = [
+            [
+                InlineKeyboardButton(
+                    text="View Link", url=f"https://nekobin.com/{link}"
+                ),
+                InlineKeyboardButton(
+                    text="View Raw",
+                    url=f"https://nekobin.com/raw/{link}",
+                ),
+            ]
+        ]
+        msg.reply_text(
+            text,
+            reply_markup=InlineKeyboardMarkup(buttons),
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=False,
+        )
+        os.remove("file.txt")
     else:
-        message.reply_text("What am I supposed to do with this?")
+        msg.reply_text("Give me a text file to paste on nekobin")
         return
-
-    key = (
-        requests.post("https://nekobin.com/api/documents", json={"content": data})
-        .json()
-        .get("result")
-        .get("key")
-    )
-
-    url = f"https://nekobin.com/{key}"
-
-    reply_text = f"Nekofied to *Nekobin* : {url}"
-
-    message.reply_text(
-        reply_text, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True
-    )
 
 
 PASTE_HANDLER = DisableAbleCommandHandler(

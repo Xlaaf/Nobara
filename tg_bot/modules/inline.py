@@ -52,14 +52,14 @@ def inlinequery(update: Update, _) -> None:
             "title": "User info on Nobara",
             "description": "Look up a person in Nobara database",
             "message_text": "Click the button below to look up a person in Nobara database using their Telegram ID",
-            "thumb_urL": "https://telegra.ph/file/c85e07b58f5b3158b529a.jpg",
+            "thumb_urL": "https://telegra.ph/file/64462a71256cb13406401.jpg",
             "keyboard": ".info ",
         },
         {
             "title": "About",
             "description": "Know about Nobara",
             "message_text": "Click the button below to get to know about Nobara.",
-            "thumb_urL": "https://telegra.ph/file/c85e07b58f5b3158b529a.jpg",
+            "thumb_urL": "https://telegra.ph/file/64462a71256cb13406401.jpg",
             "keyboard": ".about ",
         },
     ]
@@ -218,7 +218,7 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
     sql.update_user(user.id, user.username)
     about_text = f"""
     Nobara (@{context.bot.username})
-    Maintained by [Dank-del](t.me/dank_as_fuck)
+    Maintained by [Zero](t.me/Anomaliii)
     Built with ❤️ using python-telegram-bot v{str(__version__)}
     Running on Python {python_version()}
     """
@@ -246,7 +246,7 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
 
     results.append(
 
-        InlineQueryResultArticle
+        InlineQueryResultArticle|
             (
             id=str(uuid4()),
             title=f"About Nobara (@{context.bot.username})",
