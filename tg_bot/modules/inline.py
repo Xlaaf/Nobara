@@ -246,7 +246,7 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
 
     results.append(
 
-        InlineQueryResultArticle|
+        InlineQueryResultArticle
             (
             id=str(uuid4()),
             title=f"About Nobara (@{context.bot.username})",
