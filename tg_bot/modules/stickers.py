@@ -446,7 +446,7 @@ def makepack_internal(
         if packnum > 0:
             extra_version = " " + str(packnum)
         if png_sticker:
-            sticker_pack_name = f"{name}'s + extra_version
+            sticker_pack_name = f"{name}'s kang pack" + extra_version
             success = context.bot.create_new_sticker_set(
                 user.id,
                 packname,
@@ -455,7 +455,7 @@ def makepack_internal(
                 emojis=emoji,
             )
         if tgs_sticker:
-            sticker_pack_name = f"{name}'s + extra_version
+            sticker_pack_name = f"{name}'s kang pack" + extra_version
             success = context.bot.create_new_sticker_set(
                 user.id,
                 packname,
