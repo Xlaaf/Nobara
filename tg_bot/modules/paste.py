@@ -1,9 +1,15 @@
 import requests
 import codecs
+from requests import get, post
 from tg_bot import dispatcher
 from tg_bot.modules.disable import DisableAbleCommandHandler
 from tg_bot.modules.helper_funcs.alternate import send_action, typing_action
-from telegram import ParseMode, Update
+from telegram import (
+    Update,
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+    ParseMode,
+)    
 from telegram.ext import CallbackContext
 
 
