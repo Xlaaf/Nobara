@@ -48,8 +48,6 @@ def addsticker(update, context):
     packname = "a" + str(user.id) + "_by_" + context.bot.username
     packname_found = 0
     max_stickers = 120
-    
-    
     while packname_found == 0:
         try:
             stickerset = context.bot.get_sticker_set(packname)
@@ -83,7 +81,7 @@ def addsticker(update, context):
         elif msg.reply_to_message.document:
             file_id = msg.reply_to_message.document.file_id
         else:
-            msg.reply_text("Yea, I can't kang that.")
+            msg.reply_text("Yea, I can't steal that.")
 
         kang_file = context.bot.get_file(file_id)
         if not is_animated:
@@ -97,11 +95,6 @@ def addsticker(update, context):
             sticker_emoji = msg.reply_to_message.sticker.emoji
         else:
             sticker_emoji = "🙂"
-        
-        adding_process = msg.reply_text(
-                    "<b>Your sticker will be added in few seconds, please wait...</b>",
-                    parse_mode=ParseMode.MARKDOWN
-                    )
         
         if not is_animated:
             try:
@@ -145,7 +138,7 @@ def addsticker(update, context):
                     f"<b>Your sticker has been added!</b>"
                     f"\nEmoji Is : {sticker_emoji}",
                     reply_markup=edited_keyboard,
-                    parse_mode=ParseMode.MARKDOWN
+                    parse_mode=ParseMode.HTML
                     )
 
             except OSError as e:
@@ -170,7 +163,7 @@ def addsticker(update, context):
                     im.save(kangsticker, "PNG")
                     adding_process = msg.reply_text(
                         "<b>Your sticker will be added in few seconds, please wait...</b>",
-                        parse_mode=ParseMode.MARKDOWN
+                        parse_mode=ParseMode.HTML
                         )
                     context.bot.add_sticker_to_set(
                         user_id=user.id,
@@ -191,7 +184,7 @@ def addsticker(update, context):
                         f"<b>Your sticker has been added!</b>"
                         f"\nEmoji Is : {sticker_emoji}",
                         reply_markup=edited_keyboard,
-                        parse_mode=ParseMode.MARKDOWN
+                        parse_mode=ParseMode.HTML
                         )
                 elif e.message == "Invalid sticker emojis":
                     msg.reply_text("Invalid emoji(s).")
@@ -211,7 +204,7 @@ def addsticker(update, context):
                         f"<b>Your sticker has been added!</b>"
                         f"\nEmoji Is : {sticker_emoji}",
                         reply_markup=edited_keyboard,
-                        parse_mode=ParseMode.MARKDOWN
+                        parse_mode=ParseMode.HTML
                         )
                 print(e)
 
@@ -257,7 +250,7 @@ def addsticker(update, context):
                         f"<b>Your sticker has been added!</b>"
                         f"\nEmoji Is : {sticker_emoji}",
                         reply_markup=edited_keyboard,
-                        parse_mode=ParseMode.MARKDOWN
+                        parse_mode=ParseMode.HTML
                         ) 
             except TelegramError as e:
                 if e.message == "Stickerset_invalid":
@@ -288,7 +281,7 @@ def addsticker(update, context):
                             f"<b>Your sticker has been added!</b>"
                             f"\nEmoji Is : {sticker_emoji}",
                             reply_markup=edited_keyboard,
-                            parse_mode=ParseMode.MARKDOWN
+                            parse_mode=ParseMode.HTML
                             )
                 print(e)
 
@@ -341,7 +334,7 @@ def addsticker(update, context):
                         f"<b>Your sticker has been added!</b>"
                         f"\nEmoji Is : {sticker_emoji}",
                         reply_markup=edited_keyboard,
-                        parse_mode=ParseMode.MARKDOWN
+                        parse_mode=ParseMode.HTML
                         )
         except OSError as e:
             msg.reply_text("I can only kang images m8.")
@@ -381,7 +374,7 @@ def addsticker(update, context):
                             f"<b>Your sticker has been added!</b>"
                             f"\nEmoji Is : {sticker_emoji}",
                             reply_markup=edited_keyboard,
-                            parse_mode=ParseMode.MARKDOWN
+                            parse_mode=ParseMode.HTML
                             )
             elif e.message == "Invalid sticker emojis":
                 msg.reply_text("Invalid emoji(s).")
@@ -392,7 +385,7 @@ def addsticker(update, context):
                     f"<b>Your sticker has been added!</b>"
                     f"\nEmoji Is : {sticker_emoji}",
                     reply_markup=edited_keyboard,
-                    parse_mode=ParseMode.MARKDOWN
+                    parse_mode=ParseMode.HTML
                     )
             print(e)
     else:
@@ -418,7 +411,7 @@ def addsticker(update, context):
                     )
         msg.reply_text(packs_text   ,
                        reply_markup=edited_keyboard,
-                       parse_mode=ParseMode.MARKDOWN
+                       parse_mode=ParseMode.HTML
                        )
     if os.path.isfile("kangsticker.png"):
         os.remove("kangsticker.png")
@@ -453,20 +446,18 @@ def makepack_internal(
         if packnum > 0:
             extra_version = " " + str(packnum)
         if png_sticker:
-            sticker_pack_name = f"{name}'s stic-pack (@{context.bot.username})" + extra_version
             success = context.bot.create_new_sticker_set(
                 user.id,
                 packname,
-                sticker_pack_name,
+                f"{name}s kang pack" + extra_version,
                 png_sticker=png_sticker,
                 emojis=emoji,
             )
         if tgs_sticker:
-            sticker_pack_name = f"{name}'s ani-pack (@{context.bot.username})" + extra_version
             success = context.bot.create_new_sticker_set(
                 user.id,
                 packname,
-                sticker_pack_name,
+                f"{name}s animated kang pack" + extra_version,
                 tgs_sticker=tgs_sticker,
                 emojis=emoji,
             )
@@ -479,7 +470,7 @@ def makepack_internal(
                 "\n\nYou can now reply to images, stickers and animated sticker with /addsticker to add them to your pack"
                 "\n\n<b>Send /findpacks to find any sticker pack.</b>",
                 reply_markup=keyboard,
-                parse_mode=ParseMode.MARKDOWN 
+                parse_mode=ParseMode.HTML 
             )
         elif e.message == "Peer_id_invalid" or "bot was blocked by the user":
             msg.reply_text(
@@ -500,7 +491,7 @@ def makepack_internal(
                 "\n\nYou can now reply to images, stickers and animated sticker with /addsticker to add them to your pack"
                 "\n\n<b>Send /findpacks to find sticker pack.</b>",
                 reply_markup=keyboard,
-                parse_mode=ParseMode.MARKDOWN
+                parse_mode=ParseMode.HTML
             )
         return
 
@@ -510,59 +501,46 @@ def makepack_internal(
                 "\n\nYou can now reply to images, stickers and animated sticker with /addsticker to add them to your pack"
                 "\n\n<b>Send /findpacks to find sticker pack.</b>",
                 reply_markup=keyboard,
-                parse_mode=ParseMode.MARKDOWN
+                parse_mode=ParseMode.HTML
             )
     else:
         msg.reply_text("Failed to create sticker pack. Possibly due to blek mejik.")
 
 
 def getsticker(update, context):
+    bot = context.bot
     msg = update.effective_message
     chat_id = update.effective_chat.id
     if msg.reply_to_message and msg.reply_to_message.sticker:
-        context.bot.sendChatAction(chat_id, "typing")
-        update.effective_message.reply_text(
-            "Hello"
-            + f"{mention_MARKDOWN(msg.from_user.id, msg.from_user.first_name)}"
-            + ", Please check the file you requested below."
-            "\nPlease use this feature wisely!",
-            parse_mode=ParseMode.MARKDOWN,
-        )
-        context.bot.sendChatAction(chat_id, "upload_document")
         file_id = msg.reply_to_message.sticker.file_id
-        newFile = context.bot.get_file(file_id)
-        newFile.download("sticker.png")
-        context.bot.sendDocument(chat_id, document=open("sticker.png", "rb"))
-        context.bot.sendChatAction(chat_id, "upload_photo")
-        context.bot.send_photo(chat_id, photo=open("sticker.png", "rb"))
-
+        new_file = bot.get_file(file_id)
+        new_file.download("sticker.png")
+        bot.send_document(chat_id, document=open("sticker.png", "rb"))
+        os.remove("sticker.png")
     else:
-        context.bot.sendChatAction(chat_id, "typing")
         update.effective_message.reply_text(
-            "Hello"
-            + f"{mention_MARKDOWN(msg.from_user.id, msg.from_user.first_name)}"
-            + ", Please reply to sticker message to get sticker image",
-            parse_mode=ParseMode.MARKDOWN,
+            "Please reply to a sticker for me to upload its PNG."
         )
 
 
+        
 def stickerid(update, context):
     msg = update.effective_message
     if msg.reply_to_message and msg.reply_to_message.sticker:
         update.effective_message.reply_text(
             "Hello "
-            + f"{mention_MARKDOWN(msg.from_user.id, msg.from_user.first_name)}"
+            + f"{mention_HTML(msg.from_user.id, msg.from_user.first_name)}"
             + ", The sticker id you are replying is :\n <code>"
             + escape(msg.reply_to_message.sticker.file_id)
             + "</code>",
-            parse_mode=ParseMode.MARKDOWN,
+            parse_mode=ParseMode.HTML,
         )
     else:
         update.effective_message.reply_text(
             "Hello "
-            + f"{mention_MARKDOWN(msg.from_user.id, msg.from_user.first_name)}"
+            + f"{mention_HTML(msg.from_user.id, msg.from_user.first_name)}"
             + ", Please reply to sticker message to get id sticker",
-            parse_mode=ParseMode.MARKDOWN,
+            parse_mode=ParseMode.HTML,
         )
 
 
