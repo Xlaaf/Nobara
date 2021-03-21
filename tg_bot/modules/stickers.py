@@ -12,7 +12,7 @@ from telegram import TelegramError
 from telegram.ext import run_async, CallbackContext
 from telegram.utils.helpers import mention_html
 
-from tg_bot import dispatcher, REDIS
+from tg_bot import dispatcher
 from tg_bot.modules.disable import DisableAbleCommandHandler 
 
 combot_stickers_url = "https://combot.org/telegram/stickers?q="
@@ -577,86 +577,6 @@ def delsticker(update, context):
         update.effective_message.reply_text(
             "Please reply to sticker message to del sticker"
         )
-    
-
-def add_fvrtsticker(update, context):
-    bot = context.bot
-    message = update.effective_message  
-    chat = update.effective_chat 
-    user = update.effective_user 
-    args = context.args
-    query = " ".join(args)
-    if message.reply_to_message and message.reply_to_message.sticker:
-        get_s_name = message.reply_to_message.sticker.set_name
-        if not query:
-            get_s_name_title = get_s_name
-        else:
-            get_s_name_title = query
-        if get_s_name is None:
-            message.reply_text(
-                "Sticker is invalid!"
-            )
-        sticker_url = f"https://t.me/addstickers/{get_s_name}"
-        sticker_m = "<a href='{}'>{}</a>".format(sticker_url, get_s_name_title)
-        check_pack = REDIS.hexists(f'fvrt_stickers2_{user.id}', get_s_name_title)
-        if check_pack is False:
-            REDIS.hset(f'fvrt_stickers2_{user.id}', get_s_name_title, sticker_m)
-            message.reply_text(
-                f"<code>{sticker_m}</code> has been succesfully added into your favorite sticker packs list!",
-                parse_mode=ParseMode.HTML
-            )
-        else:
-            message.reply_text(
-                f"<code>{sticker_m}</code> is already exist in your favorite sticker packs list!",
-                parse_mode=ParseMode.HTML
-            )
-        
-    else:
-        message.reply_text(
-            'Reply to any sticker!'
-        )  
-
-
-def list_fvrtsticker(update, context): 
-    message = update.effective_message  
-    chat = update.effective_chat 
-    user = update.effective_user 
-    fvrt_stickers_list = REDIS.hvals(f'fvrt_stickers2_{user.id}')
-    fvrt_stickers_list.sort()
-    fvrt_stickers_list = "\n• ".join(fvrt_stickers_list)
-    if fvrt_stickers_list: 
-        message.reply_text(
-            "{}'s favorite sticker packs:\n• {}".format(user.first_name,
-                                                  fvrt_stickers_list),
-            parse_mode=ParseMode.HTML
-        ) 
-    else:
-        message.reply_text(
-            "You haven't added any sticker yet."
-        )
-
-
-def remove_fvrtsticker(update, context): 
-    message = update.effective_message  
-    chat = update.effective_chat 
-    user = update.effective_user 
-    args = context.args
-    del_stick = " ".join(args)
-    if not del_stick:
-        message.reply_text("Please give a your favorite sticker pack name to remove from your list.")
-        return
-    del_check = REDIS.hexists(f'fvrt_stickers2_{user.id}', del_stick)
-    if not del_check is False:
-        REDIS.hdel(f'fvrt_stickers2_{user.id}',del_stick)
-        message.reply_text(
-            f"<code>{del_stick}</code> has been succesfully deleted from your list.",
-            parse_mode=ParseMode.HTML
-        )
-    else:
-        message.reply_text(
-            f"<code>{del_stick}</code> doesn't exist in your favorite sticker pack list.",
-            parse_mode=ParseMode.HTML
-        )
         
 __help__ = """
 Stickers made easy with stickers module!
@@ -667,28 +587,17 @@ Stickers made easy with stickers module!
 - /remove: Reply to your anime exist sticker to your pack to delete it.
 - /stickerid: Reply to a sticker to me to tell you its file ID.
 - /getsticker: Reply to a sticker to me to upload its raw PNG file.
-- /addfsticker or /afs <custom name>: Reply to a sticker to add it into your favorite pack list.
-- /myfsticker or /mfs: Get list of your favorite packs.
-- /removefsticker or /rfs <custom name>: Reply to a sticker to remove it into your favorite pack list.
-
-*Example:* `/addfstickers nobara`
 """
 
 __mod_name__ = "Stickers"
 KANG_HANDLER = DisableAbleCommandHandler("steal" , addsticker, pass_args=True)
 DEL_HANDLER = DisableAbleCommandHandler("remove", delsticker)
 STICKERID_HANDLER = DisableAbleCommandHandler("stickerid", stickerid)
-ADD_FSTICKER_HANDLER = DisableAbleCommandHandler(["addfsticker","afs"], add_fvrtsticker, pass_args=True)
-REMOVE_FSTICKER_HANDLER = DisableAbleCommandHandler(["removefsticker","rfs"], remove_fvrtsticker, pass_args=True)
-MY_FSTICKERS_HANDLER = DisableAbleCommandHandler(["myfsticker","mfs"], list_fvrtsticker)
 GETSTICKER_HANDLER = DisableAbleCommandHandler("getsticker", getsticker)
 FIND_STICKERS_HANDLER = DisableAbleCommandHandler("stickers", cb_sticker)
 
 dispatcher.add_handler(KANG_HANDLER)
 dispatcher.add_handler(DEL_HANDLER)
 dispatcher.add_handler(STICKERID_HANDLER)
-dispatcher.add_handler(ADD_FSTICKER_HANDLER)
-dispatcher.add_handler(REMOVE_FSTICKER_HANDLER)
-dispatcher.add_handler(MY_FSTICKERS_HANDLER)
 dispatcher.add_handler(GETSTICKER_HANDLER)
 dispatcher.add_handler(FIND_STICKERS_HANDLER)

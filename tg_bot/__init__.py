@@ -9,7 +9,6 @@ from telethon.sessions import MemorySession
 from pyrogram import Client, errors
 from pyrogram.errors.exceptions.bad_request_400 import PeerIdInvalid, ChannelInvalid
 from pyrogram.types import Chat, User
-from redis import StrictRedis
 from configparser import ConfigParser
 from rich.logging import RichHandler
 StartTime = time.time()
@@ -57,7 +56,6 @@ CUSTOM_CMD = ['/', '!']
 BAN_STICKER = kigconfig.get("BAN_STICKER", None)
 TOKEN = kigconfig.get("TOKEN")
 DB_URI = kigconfig.get("SQLALCHEMY_DATABASE_URI")
-REDIS_URL = kigconfig.get("REDIS_URI")
 LOAD = kigconfig.get("LOAD").split()
 LOAD = list(map(str, LOAD))
 MESSAGE_DUMP = kigconfig.getfloat("MESSAGE_DUMP")
@@ -96,15 +94,6 @@ else:
     except:
         sw = None
         log.warning("Can't connect to SpamWatch!")
-
-#Redis
-REDIS = StrictRedis.from_url(REDIS_URL,decode_responses=True)
-try:
-    REDIS.ping()
-    log.info("Your redis server is now alive!")
-except BaseException:
-    raise Exception("Your redis server is not alive, please check again.")
-
         
 
 updater = tg.Updater(TOKEN, workers=min(32, os.cpu_count() + 4), request_kwargs={"read_timeout": 10, "connect_timeout": 10})
