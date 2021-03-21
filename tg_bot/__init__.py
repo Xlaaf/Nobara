@@ -92,16 +92,14 @@ if spamwatch_api is None:
     log.warning("SpamWatch API key is missing! Check your config.ini")
 else:
 	sw = spamwatch.Client(spamwatch_api)
-
-REDIS_URL = Config.REDIS_URI
-REDIS = StrictRedis.from_url(REDIS_URL,decode_responses=True)
+    REDIS_URL = Config.REDIS_URI
+    REDIS = StrictRedis.from_url(REDIS_URL,decode_responses=True)
 
     try:
         REDIS.ping()
-        log.warning("Your redis server is now alive!")
-    
-except BaseException:
-    raise Exception("Your redis server is not alive, please check again.")
+        log.warning("Your redis server is now alive!")  
+    except BaseException:
+        raise Exception("Your redis server is not alive, please check again.")
 
 updater = tg.Updater(TOKEN, workers=min(32, os.cpu_count() + 4), request_kwargs={"read_timeout": 10, "connect_timeout": 10})
 telethn = TelegramClient(MemorySession(), APP_ID, API_HASH)
