@@ -13,7 +13,7 @@ from tg_bot import (
     SUPPORT_USERS,
     SARDEGNA_USERS,
     WHITELIST_USERS,
-    MESSAGE_DUMP
+    MESSAGE_DUMP,
     sw,
     dispatcher,
 )
