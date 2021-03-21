@@ -7,7 +7,7 @@ import aiohttp
 import youtube_dl
 
 from pyrogram import filters
-from tg_bot import pbot
+from tg_bot import kp
 from youtube_search import YoutubeSearch
 from tg_bot.pyrogram.errors import capture_err
 from tg_bot.modules.language import gs
