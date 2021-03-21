@@ -218,7 +218,7 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
     sql.update_user(user.id, user.username)
     about_text = f"""
     Nobara (@{context.bot.username})
-    Maintained by [Zero](t.me/Anomaliii)
+    Maintained by [ZERO](t.me/Anomaliii)
     Built with ❤️ using python-telegram-bot v{str(__version__)}
     Running on Python {python_version()}
     """

@@ -337,7 +337,7 @@ music_help: |
       name. *
       
       -> /song [song name] :Uploads the song in it's best quality available
-         × Ex: `/song Faded Alan Walker`
+      × Ex: `/song Faded Alan Walker`
 
 muting_help: |
 
