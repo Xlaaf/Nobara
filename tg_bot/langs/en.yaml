@@ -381,6 +381,16 @@ reports_help: |
           • `/reports <on/off>`*:* change report setting, or view current status.
           • If done in pm, toggles your status.
           • If in group, toggles that groups's status.
+          
+stickers_help: |
+
+       Stickers made easy with stickers module!
+       
+       - /stickers: Find stickers for given term on combot sticker catalogue
+       - /steal: Reply to a sticker to add it to your pack.
+       - /remove: Reply to your anime exist sticker to your pack to delete it.
+       - /stickerid: Reply to a sticker to me to tell you its file ID.
+       - /getsticker: Reply to a sticker to me to upload its raw PNG file.
 
 rules_help: |
 
