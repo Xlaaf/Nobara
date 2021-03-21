@@ -1,6 +1,7 @@
-import html
 import random
-import time
+import html
+from datetime import datetime
+import humanize
 
 from telegram import Update, MessageEntity
 from telegram.ext import Filters, CallbackContext, MessageHandler
