@@ -9,6 +9,7 @@ from telethon.sessions import MemorySession
 from pyrogram import Client, errors
 from pyrogram.errors.exceptions.bad_request_400 import PeerIdInvalid, ChannelInvalid
 from pyrogram.types import Chat, User
+from redis import StrictRedis
 from configparser import ConfigParser
 from rich.logging import RichHandler
 StartTime = time.time()
@@ -56,6 +57,7 @@ CUSTOM_CMD = ['/', '!']
 BAN_STICKER = kigconfig.get("BAN_STICKER", None)
 TOKEN = kigconfig.get("TOKEN")
 DB_URI = kigconfig.get("SQLALCHEMY_DATABASE_URI")
+REDIS_URL = kigconfig.get("REDIS_URL")
 LOAD = kigconfig.get("LOAD").split()
 LOAD = list(map(str, LOAD))
 MESSAGE_DUMP = kigconfig.getfloat("MESSAGE_DUMP")
