@@ -90,12 +90,7 @@ def addsticker(update, context):
             sticker_emoji = msg.reply_to_message.sticker.emoji
         else:
             sticker_emoji = "🙂"
-        
-        adding_process = msg.reply_text(
-                    "<b>Your sticker will be added in few seconds, please wait...</b>",
-                    parse_mode=ParseMode.HTML
-                    )
-        
+       
         if not is_animated:
             try:
                 im = Image.open(kangsticker)
@@ -158,13 +153,8 @@ def addsticker(update, context):
                         packnum,
                         png_sticker=open("kangsticker.png", "rb"),
                     )
-                    adding_process.delete()
-                elif e.message == "Sticker_png_dimensions":
+                elif emessage == "Sticker_png_dimensions":
                     im.save(kangsticker, "PNG")
-                    adding_process = msg.reply_text(
-                        "<b>Your sticker will be added in few seconds, please wait...</b>",
-                        parse_mode=ParseMode.HTML
-                        )
                     context.bot.add_sticker_to_set(
                         user_id=user.id,
                         name=packname,
@@ -264,7 +254,6 @@ def addsticker(update, context):
                         packnum,
                         tgs_sticker=open("kangsticker.tgs", "rb"),
                     )
-                    adding_process.delete()
                 elif e.message == "Invalid sticker emojis":
                     msg.reply_text("Invalid emoji(s).")
                 elif e.message == "Internal Server Error: sticker set not found (500)":
