@@ -2,7 +2,7 @@
 import sys
 import traceback
 from functools import wraps
-from MashaRoBot import pbot, SUPPORT_CHAT
+from tg_bot import kp, MESSAGE_DUMP
 
 def split_limits(text):
     if len(text) < 2048:
@@ -41,8 +41,8 @@ def capture_err(func):
                 ),
             )
             for x in error_feedback:
-                await pbot.send_message(
-                    SUPPORT_CHAT,
+                await kp.send_message(
+                    MESSAGE_DUMP,
                     x
                 )
             raise err
