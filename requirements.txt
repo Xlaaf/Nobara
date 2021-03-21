@@ -31,14 +31,8 @@ PyYAML>=5.1.2
 Intellivoid-SPB
 rich
 psutil
-pytz
-hachoir
-pybase64
-pySmartDL
-youtube-search-python
-instantmusic
-validators
-youtube_dl
+youtube-dl
+youtube_search
 pretty_errors
 humanize
 
