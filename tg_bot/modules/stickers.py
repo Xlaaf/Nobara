@@ -10,6 +10,7 @@ from telegram import TelegramError
 from telegram.ext import run_async, CallbackContext
 from telegram.utils.helpers import mention_html
 from tg_bot import dispatcher
+from tg_bot.modules.language import gs
 from tg_bot.modules.disable import DisableAbleCommandHandler 
 
 
@@ -43,6 +44,8 @@ def addsticker(update, context):
     packname = "a" + str(user.id) + "_by_" + context.bot.username
     packname_found = 0
     max_stickers = 120
+    
+    
     while packname_found == 0:
         try:
             stickerset = context.bot.get_sticker_set(packname)
@@ -90,7 +93,12 @@ def addsticker(update, context):
             sticker_emoji = msg.reply_to_message.sticker.emoji
         else:
             sticker_emoji = "🙂"
-       
+        
+        adding_process = msg.reply_text(
+                    "<b>Your sticker will be added in few seconds, please wait...</b>",
+                    parse_mode=ParseMode.HTML
+                    )
+        
         if not is_animated:
             try:
                 im = Image.open(kangsticker)
@@ -153,8 +161,13 @@ def addsticker(update, context):
                         packnum,
                         png_sticker=open("kangsticker.png", "rb"),
                     )
-                elif emessage == "Sticker_png_dimensions":
+                    adding_process.delete()
+                elif e.message == "Sticker_png_dimensions":
                     im.save(kangsticker, "PNG")
+                    adding_process = msg.reply_text(
+                        "<b>Your sticker will be added in few seconds, please wait...</b>",
+                        parse_mode=ParseMode.HTML
+                        )
                     context.bot.add_sticker_to_set(
                         user_id=user.id,
                         name=packname,
@@ -254,6 +267,7 @@ def addsticker(update, context):
                         packnum,
                         tgs_sticker=open("kangsticker.tgs", "rb"),
                     )
+                    adding_process.delete()
                 elif e.message == "Invalid sticker emojis":
                     msg.reply_text("Invalid emoji(s).")
                 elif e.message == "Internal Server Error: sticker set not found (500)":
@@ -559,17 +573,8 @@ def delsticker(update, context):
             "Please reply to sticker message to del sticker"
         )
 
-
-__help__ = """
-Stickers made easy with stickers module!
-
-- /stickers: Find stickers for given term on combot sticker catalogue 
-
-- /steal: Reply to a sticker to add it to your pack.
-- /remove: Reply to your anime exist sticker to your pack to delete it.
-- /stickerid: Reply to a sticker to me to tell you its file ID.
-- /getsticker: Reply to a sticker to me to upload its raw PNG file
-"""
+def get_help(chat):
+    return gs(chat, "stickers_help")
 
 __mod_name__ = "Stickers"
 KANG_HANDLER = DisableAbleCommandHandler("steal" , addsticker, pass_args=True)
