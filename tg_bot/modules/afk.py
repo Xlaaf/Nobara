@@ -43,7 +43,8 @@ def no_longer_afk(update: Update, context: CallbackContext):
 
     if not is_user_afk(user.id):  #Check if user is afk or not
         return
-    afk_time = get_readable_time((time.time() - afk_time(user_id))
+    afk_time = sql.get_afk_time(user_id)
+    afk_since = get_readable_time((time.time() - afk_time))
     res = sql.rm_afk(user.id)
     if res:
         if message.new_chat_members:  #dont say msg
