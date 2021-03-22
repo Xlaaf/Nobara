@@ -41,7 +41,7 @@ def no_longer_afk(update: Update, context: CallbackContext):
     if not user:  # ignore channels
         return
 
-    afk_time = sql.get_afk_time(user_id)
+    afk_time = sql.get_afk_time(user.id)
     afk_since = get_readable_time((time.time() - afk_time))
     res = sql.rm_afk(user.id)
     if res:
