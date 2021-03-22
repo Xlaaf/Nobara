@@ -1,6 +1,6 @@
 import random
 import html
-import time
+from datetime import datetime
 import humanize
 
 from telegram import Update, MessageEntity
