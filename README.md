@@ -1,4 +1,4 @@
-![Kugisaki Nobara](https://telegra.ph/file/0d3faf21108398f019feb.jpg)
+![Kugisaki Nobara](https://i.ibb.co/cbLj4KQ/0996c547506b80696f5091dc4829bfe0.gif)
 # Nobara // @NobaraRobot
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
@@ -48,8 +48,5 @@ For queries or any issues regarding the bot please open an issue ticket or visit
 ## Credits 📍
 + [Dank-Del](https://github.com/Dank-del) for base this bot
 + [TsunayoshiSawada](https://github.com/SawadaTsunayoshi) 
-+ [Userbotindo](https://github.com/userbotindo)
-+ [Saber](https://github.com/hyper-ub/saber)
-+ [IGRIS_BOT](https://github.com/HellxGodLike/IGRIS_BOT)
 + Well, it's all in the commit history 
 Feel free to open pull requests should any be missing.
