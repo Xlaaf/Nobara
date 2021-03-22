@@ -20,7 +20,14 @@ AFK_REPLY_GROUP = 8
 
 def afk(update: Update, context: CallbackContext):
     args = update.effective_message.text.split(None, 1)
-    afk_time = int(time.time())
+    user = update.effective_user
+
+    if not user:  # ignore channels
+        return
+
+    if user.id in [777000, 1087968824]:
+        return
+
     notice = ""
     if len(args) >= 2:
         reason = args[1]
@@ -30,10 +37,13 @@ def afk(update: Update, context: CallbackContext):
     else:
         reason = ""
 
-    sql.set_afk(update.effective_user.id, afk_time, reason)
+    sql.set_afk(update.effective_user.id, reason)
     fname = update.effective_user.first_name
-    update.effective_message.reply_text("{} is now away!{}".format(fname, notice))
-
+    try:
+        update.effective_message.reply_text(
+            "{} is now away!{}".format(fname, notice))
+    except BadRequest:
+        pass
 
 def no_longer_afk(update: Update, context: CallbackContext):
     user = update.effective_user
