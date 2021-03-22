@@ -116,7 +116,11 @@ def check_afk(update, context, user_id, fst_name, userc_id):
         user = sql.check_afk_status(user_id)
         afk_time = sql.get_afk_time(user_id)
         afk_since = get_readable_time((time.time() - afk_time))
-        if not user.reason:
+       
+        
+       time = humanize.naturaldelta(datetime.now() - user.time)
+       
+       if not user.reason:
             if int(userc_id) == int(user_id):
                 return
             res = "{} is afk since {}".format(fst_name, afk_since)
