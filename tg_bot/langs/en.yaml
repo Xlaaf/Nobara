@@ -442,13 +442,13 @@ greetings_help: |
 
 nation_help: |
 
-      - /eagle - Lists all Eagle Union members.
+      - /eagle - Lists all Zero Union members.
       - /royals - Lists all Royal Nations.
       - /sakuras - Lists all Sakura Nations.
       - /sardegnas - Lists all Sardegnas Nations.
       - /neptunians - Lists all Neptunia Nations.
       Note: These commands list users with special bot priveleges and can only be used by them.
-      You can visit @YorktownEagleUnion to query more about these.
+      You can visit @ZeroBotSupport to query more about these.
 
 nlp_help: |
 
