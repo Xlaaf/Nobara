@@ -76,8 +76,6 @@ def song(client, message):
         print(e)
 
 
-from tg_bot.modules.language import gs
-
 def get_help(chat):
     return gs(chat, "music_help")
 
