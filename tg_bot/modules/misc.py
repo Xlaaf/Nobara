@@ -352,7 +352,7 @@ def stats(update, context):
     try:
         update.effective_message.reply_text(
 
-            f"*Kigyo (@{context.bot.username}), *\n" +
+            f"*Nobara (@{context.bot.username}), *\n" +
             "Maintained by [ZERO](t.me/Anomaliii)\n" +
             "Built with ❤️ using python-telegram-bot\n\n" + status +
             "\n*Bot statistics*:\n"
@@ -362,7 +362,7 @@ def stats(update, context):
     except BaseException:
         update.effective_message.reply_text(
 
-            f"*Kigyo (@{context.bot.username}), *\n" +
+            f"*Nobara (@{context.bot.username}), *\n" +
             "built by [ZERO](t.me/Anomaliii)\n" +
             "Built with ❤️ using python-telegram-bot\n" +
             "\n*Bot statistics*:\n"
