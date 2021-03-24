@@ -18,22 +18,22 @@ def get_user_list(__init__, key):
         return json.load(json_file)[key]
 
 # enable logging
-FORMAT = "[Kugisaki] %(message)s"
+FORMAT = "[KUGISAKI] %(message)s"
 logging.basicConfig(handlers=[RichHandler()], level=logging.INFO, format=FORMAT, datefmt="[%X]")
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 log = logging.getLogger("rich")
 
-log.info("[NOBARA] NOBARA is starting. | An Zero Union Project. | Licensed under GPLv3.")
+log.info("[KUGISAKI] Nobara is starting. | An Zero Union Project. | Licensed under GPLv3.")
 
-log.info("[NOBARA] Not affiliated to Azur Lane or Yostar in any way whatsoever.")
-log.info("[NOBARA] Project maintained by: github.com/Ryomen-Sukuna (t.me/Anomaliii)")
+log.info("[KUGISAKI] Not affiliated to Jujutsu or Cursed in any way whatsoever.")
+log.info("[KUGISAKI] Project maintained by: github.com/Ryomen-Sukuna (t.me/Anomaliii)")
 
 # if version < 3.6, stop bot.
 if sys.version_info[0] < 3 or sys.version_info[1] < 7:
     log.error(
-        "[NOBARA] You MUST have a python version of at least 3.7! Multiple features depend on this. Bot quitting."
+        "[KUGISAKI] You MUST have a python version of at least 3.7! Multiple features depend on this. Bot quitting."
     )
-    quit(1)
+    sys.exit(1)
 
 parser = ConfigParser()
 parser.read("config.ini")
@@ -73,6 +73,7 @@ CASH_API_KEY = kigconfig.get("CASH_API_KEY")
 TIME_API_KEY = kigconfig.get("TIME_API_KEY")
 WALL_API = kigconfig.get("WALL_API")
 LASTFM_API_KEY = kigconfig.get("LASTFM_API_KEY")
+API_WEATHER = kigconfig.get("API_WEATHER")
 try:
     CF_API_KEY = kigconfig.get("CF_API_KEY")
     log.info("[NLP] AI antispam powered by Intellivoid.")
@@ -94,13 +95,12 @@ else:
     except:
         sw = None
         log.warning("Can't connect to SpamWatch!")
-        
 
 updater = tg.Updater(TOKEN, workers=min(32, os.cpu_count() + 4), request_kwargs={"read_timeout": 10, "connect_timeout": 10})
 telethn = TelegramClient(MemorySession(), APP_ID, API_HASH)
 dispatcher = updater.dispatcher
 
-kp = Client("KugisakiPyro", api_id=APP_ID, api_hash=API_HASH, bot_token=TOKEN, workers=min(32, os.cpu_count() + 4))
+kp = Client(":memory:", api_id=APP_ID, api_hash=API_HASH, bot_token=TOKEN, workers=min(32, os.cpu_count() + 4))
 apps = []
 apps.append(kp)
 

@@ -75,10 +75,8 @@ def song(client, message):
     except Exception as e:
         print(e)
 
-
-from tg_bot.modules.language import gs
-
 def get_help(chat):
     return gs(chat, "music_help")
+
 
 __mod_name__ = "Music"

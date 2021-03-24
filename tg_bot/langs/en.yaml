@@ -420,6 +420,13 @@ warns_help: |
       • `/warnlimit <num>`*:* set the warning limit
       • `/strongwarn <on/yes/off/no>`*:* If set to on, exceeding the warn limit will result in a ban. Else, will just kick.
 
+weather_help: |
+
+     *Weather module:*
+      • /weather <city>: Gets weather information of particular place!
+
+      \* To prevent spams weather command and the output will be deleted after 30 seconds.
+
 greetings_help: |
 
       *Admins only:*
@@ -439,16 +446,6 @@ greetings_help: |
 
       *Welcome markdown:*
        • `/welcomehelp`*:* view more formatting information for custom welcome/goodbye messages.
-
-nation_help: |
-
-      - /eagle - Lists all Eagle Union members.
-      - /royals - Lists all Royal Nations.
-      - /sakuras - Lists all Sakura Nations.
-      - /sardegnas - Lists all Sardegnas Nations.
-      - /neptunians - Lists all Neptunia Nations.
-      Note: These commands list users with special bot priveleges and can only be used by them.
-      You can visit @YorktownEagleUnion to query more about these.
 
 nlp_help: |
 

@@ -281,7 +281,7 @@ def help_button(update, context):
                 text=text,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton(text="Back", callback_data="help_back")]]
+                    [[InlineKeyboardButton(text="⬅️ Back", callback_data="help_back")]]
                 ),
             )
 
@@ -362,7 +362,7 @@ def get_help(update, context):
             chat.id,
             text,
             InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Back", callback_data="help_back")]]
+                [[InlineKeyboardButton(text="⬅️ Back", callback_data="help_back")]]
             ),
         )
 
@@ -624,7 +624,7 @@ def main():
             updater.bot.set_webhook(url=URL + TOKEN)
 
     else:
-        log.info("Nobara started, Using long polling.")
+        log.info(f"Nobara started, Using long polling. | BOT: [@{dispatcher.bot.username}]")
         updater.start_polling(timeout=15, read_latency=4, drop_pending_updates=True)
     if len(argv) not in (1, 3, 4):
         telethn.disconnect()
@@ -634,7 +634,7 @@ def main():
 
 if __name__ == "__main__":
     kp.start()
-    log.info("[KIGYO] Successfully loaded modules: " + str(ALL_MODULES))
+    log.info("[KUGISAKI] Successfully loaded modules: " + str(ALL_MODULES))
     telethn.start(bot_token=TOKEN)
     main()
     idle()
