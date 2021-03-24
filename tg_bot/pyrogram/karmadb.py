@@ -1,4 +1,10 @@
 #Credits to @infinity_bots - Williambutcherbot
+
+from tg_bot import db
+from typing import Dict, List, Union
+
+karmadb = db.karma
+
 """ Karma functions """
 
 
