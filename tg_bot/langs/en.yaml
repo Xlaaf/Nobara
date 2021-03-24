@@ -65,19 +65,22 @@ antiflood_help: |
 
     Antiflood allows you to take action on users that send more than x messages in a row. Exceeding the set flood
     will result in restricting that user.
-     This will mute users if they send more than 10 messages in a row, bots are ignored.
-     • /flood: Get the current flood control setting
-     *Admins only:*
-     • `/setflood <int/'no'/'off'>`*:* enables or disables flood control
-     *Example:* `/setflood 10`
-     • /setfloodmode <ban/kick/mute/tban/tmute> <value>: Action to perform when user have exceeded flood limit. ban/kick/mute/tmute/tban
-     *Note:*
-     • Value must be filled for tban and tmute!!
-     It can be:
-     5m = 5 minutes
-     6h = 6 hours
-     3d = 3 days
-     1w = 1 week
+     
+    This will mute users if they send more than 10 messages in a row, bots are ignored.
+    • /flood: Get the current flood control setting.
+
+    *Admins only:*
+    • /setflood <int/no/off>: enables or disables flood control
+    *Example:* /setflood 10
+    • /setfloodmode <ban/kick/mute/tban/tmute> <value>: Action to perform when user have exceeded flood limit. ban/kick/mute/tmute/tban.
+
+    *Note:*
+    • Value must be filled for tban and tmute!!
+    It can be:
+    5m = 5 minutes
+    6h = 6 hours
+    3d = 3 days
+    1w = 1 week
 
 approve_help: |
 
@@ -93,7 +96,7 @@ approve_help: |
 
 backup_help: |
 
-    *Admin only:*
+     *Admin only:*
      - /import: reply to a group butler backup file to import as much as possible, making the transfer super simple! Note \
        that files/photos can't be imported due to telegram restrictions.
      - /export: !!! This isn't a command yet, but should be coming soon!
@@ -112,14 +115,14 @@ blacklist_help: |
 
     Blacklists are used to stop certain triggers from being said in a group. Any time the trigger is mentioned, the message will immediately be deleted. A good combo is sometimes to pair this up with warn filters!
 
-    *NOTE*: Blacklists do not affect group admins.
+   *NOTE*: Blacklists do not affect group admins.
 
-     • /blacklist: View the current blacklisted words.
+    • /blacklist: View the current blacklisted words.
 
     Admin only:
-     • /addblacklist <triggers>: Add a trigger to the blacklist. Each line is considered one trigger, so using different lines will allow you to add multiple triggers.
-     • /unblacklist <triggers>: Remove triggers from the blacklist. Same newline logic applies here, so you can remove multiple triggers at once.
-     • /blacklistmode <off/del/warn/ban/kick/mute/tban/tmute>: Action to perform when someone sends blacklisted words.
+    • /addblacklist <triggers>: Add a trigger to the blacklist. Each line is considered one trigger, so using different lines will allow you to add multiple triggers.
+    • /unblacklist <triggers>: Remove triggers from the blacklist. Same newline logic applies here, so you can remove multiple triggers at once.
+    • /blacklistmode <off/del/warn/ban/kick/mute/tban/tmute>: Action to perform when someone sends blacklisted words.
 
 cleaner_help: |
 
@@ -135,25 +138,25 @@ connections_help: |
     - /disconnect: disconnect from a chat
     - /helpconnect: list available commands that can be done remotely
 
-     *Admin only:*
+    *Admin only:*
     - /allowconnect <yes/no>: allow a user to connect to a chat
 
 cust_filters_help: |
 
     • /filters: List all active filters saved in the chat.
 
-     *Admin only:*
+    *Admin only:*
     • /filter <keyword> <reply message>: Add a filter to this chat. The bot will now reply that message whenever 'keyword'
       is mentioned. If you reply to a sticker with a keyword, the bot will reply with that sticker. NOTE: all filter
       keywords are in lowercase. If you want your keyword to be a sentence, use quotes. eg: /filter "hey there" How you
       doin?
     • /stop <filter keyword>: Stop that filter.
 
-     *Chat creator only:*
+    *Chat creator only:*
     • /removeallfilters: Remove all chat filters at once.
 
-      *Note*: Filters also support markdown formatters like: {first}, {last} etc.. and buttons.
-        Check `/markdownhelp` to know more!
+    *Note*: Filters also support markdown formatters like: {first}, {last} etc.. and buttons.
+     Check /markdownhelp to know more!
 
 disable_help: |
 
@@ -172,13 +175,13 @@ disable_help: |
 
 feds_help: |
 
-    Ah, group management. Everything is fun, until the spammer starts entering your group, and you have to block it. Then you need to start banning more, and more, and it hurts.
-    But then you have many groups, and you don't want this spammer to be in one of your groups - how can you deal? Do you have to manually block it, in all your groups?
+     Ah, group management. Everything is fun, until the spammer starts entering your group, and you have to block it. Then you need to start banning more, and more, and it hurts.
+     But then you have many groups, and you don't want this spammer to be in one of your groups - how can you deal? Do you have to manually block it, in all your groups?
 
-    No longer! With Federation, you can make a ban in one chat overlap with all other chats.
-    You can even designate admin federations, so your trusted admin can ban all the chats you want to protect.
+     No longer! With Federation, you can make a ban in one chat overlap with all other chats.
+     You can even designate admin federations, so your trusted admin can ban all the chats you want to protect.
 
-    *Commands Available*:
+     *Commands Available*:
 
      • /newfed <fedname>: Create a new Federation with the name given. Users are only allowed to have one Federation. This method can also be used to rename the Federation. (max. 64 characters)
      • /delfed: Delete your Federation, and any information related to it. Will not cancel blocked users.
@@ -252,12 +255,12 @@ locks_help: |
      The locks module allows you to lock away some common items in the
      telegram world; the bot will automatically delete them!
 
-      • /locktypes: Lists all possible locktypes
+     • /locktypes: Lists all possible locktypes
 
      *Admins only:*
-      • /lock <type>: Lock items of a certain type (not available in private)
-      • /unlock <type>: Unlock items of a certain type (not available in private)
-      • /locks: The current list of locks in this chat.
+     • /lock <type>: Lock items of a certain type (not available in private)
+     • /unlock <type>: Unlock items of a certain type (not available in private)
+     • /locks: The current list of locks in this chat.
 
      Locks can be used to restrict a group's users.
      eg:
@@ -266,8 +269,8 @@ locks_help: |
      Locking bots will stop non-admins from adding bots to the chat.
 
      *Note:*
-      • Unlocking permission *info* will allow members (non-admins) to change the group information, such as the description or the group name
-      • Unlocking permission *pin* will allow members (non-admins) to pinned a message in a group
+     • Unlocking permission *info* will allow members (non-admins) to change the group information, such as the description or the group name
+     • Unlocking permission *pin* will allow members (non-admins) to pinned a message in a group
 
 log_help: |
 
@@ -342,7 +345,7 @@ music_help: |
 
 muting_help: |
 
-      *Admins only:*
+       *Admins only:*
        • /mute <userhandle>: silences a user. Can also be used as a reply, muting the replied to user.
        • /tmute <userhandle> x(m/h/d): mutes a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
        • /unmute <userhandle>: unmutes a user. Can also be used as a reply, muting the replied to user.
@@ -356,7 +359,7 @@ notes_help: |
         If you would like to retrieve the contents of a note without any formatting, use /get <notename> noformat. This can
         be useful when updating a current note.
 
-        *Admins only:*
+       *Admins only:*
        • /save <notename> <notedata>: saves notedata as a note with name notename
         A button can be added to a note by using standard markdown link syntax - the link should just be prepended with a
          buttonurl:` section, as such: [somelink](buttonurl:example.com). Check /markdownhelp for more info.
@@ -367,7 +370,7 @@ notes_help: |
 
 purge_help: |
 
-       *Admin only:*
+        *Admin only:*
         • /del: deletes the message you replied to
         • /purge: deletes all messages between this and the replied to message.
         • /purge <integer X>: deletes the replied message, and X messages following it if replied to a message.
@@ -446,14 +449,14 @@ greetings_help: |
       user joined chat, user left chat.
 
       *Welcome markdown:*
-       • `/welcomehelp`*:* view more formatting information for custom welcome/goodbye messages.
+       • /welcomehelp: view more formatting information for custom welcome/goodbye messages.
 
 nlp_help: |
 
-      *Chatroom Spam Prediction*
+       *Chatroom Spam Prediction*
        This feature uses @Intellivoid's Coffeehouse AI to
        process chat messages and detect spam.
        This comes under Coffehouse' NLP. Learn more about
        it [here](https://docs.intellivoid.net/coffeehouse/v1/nlp/spam_prediction/chatroom)
        *Command:*
-        • /nlpstat <on/off/yes/no>: toggle NLP in your chat.
+       • /nlpstat <on/off/yes/no>: toggle NLP in your chat.
