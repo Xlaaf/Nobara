@@ -1,22 +1,36 @@
-![Kugisaki Nobara](https://i.ibb.co/cbLj4KQ/0996c547506b80696f5091dc4829bfe0.gif)
-# Nobara // @NobaraRobot
+<p align="center">
+  <img src="https://telegra.ph/file/2ce2e9e84a55d3535f599.jpg">
+</p>
 
-[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
-[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/Skuzzy_xD/)</br>
+# Kugisaki Nobara
 
+<p align="center">
+- x -|│  “	Just some code who is a bot for fun. ”  │| - x -
+</p>
 
-![Python Version](https://img.shields.io/badge/python-3.9-green?style=for-the-badge&logo=appveyor)
-![Issues](https://img.shields.io/github/issues/Ryomen-Sukuna/Nobara?style=for-the-badge&logo=appveyor)
-![Forks](https://img.shields.io/github/forks/Ryomen-Sukuna/Nobara?style=for-the-badge&logo=appveyor)
-![Stars](https://img.shields.io/github/stars/Ryomen-Sukuna/Nobara?style=for-the-badge&logo=appveyor)
-![LICENSE](https://img.shields.io/github/license/Ryomen-Sukuna/Nobara?style=for-the-badge&logo=appveyor)
-![Contributors](https://img.shields.io/github/contributors/Ryomen-Sukuna/Nobara?style=for-the-badge&logo=appveyor)
-![Repository Size](https://img.shields.io/github/repo-size/Ryomen-Sukuna/Nobara?style=for-the-badge&logo=appveyor)</br>
-
-
-[![Join Support!](https://img.shields.io/badge/Support%20Chat-ZeroUnion-red)](https://t.me/YorktownZeroUnion)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/cfb691a93a064d9ea753ef2b5fccf797)](https://www.codacy.com/manual/Ryomen-Sukuna/Nobara?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Ryomen-Sukuna/Nobara&amp;utm_campaign=Badge_Grade)
-
+<p align="center">
+<a href="https://github.com/Ryomen-Sukuna/Nobara" alt="GitHub closed issues"> <img src="https://img.shields.io/github/issues-closed-raw/ryomen-sukuna/Nobara?style=flat&logo=github&color=success" /> </a>
+<a href="https://github.com/Ryomen-Sukuna/Nobara/network/members" alt="GitHub forks"> <img src="https://img.shields.io/github/forks/Ryomen-Sukuna/Nobara?label=Forks&logo=github" /> </a>
+<a href="https://github.com/Ryomen-Sukuna/Nobara" alt="GitHub closed pull requests"> <img src="https://img.shields.io/github/issues-pr-closed-raw/ryomen-sukuna/Nobara?color=success" /> </a>
+<a href="https://github.com/Ryomen-Sukuna/Nobara" alt="GitHub commit activity"> <img src="https://img.shields.io/github/commit-activity/m/ryomen-sukuna/Nobara" /> </a>
+<a href="https://github.com/Ryomen-Sukuna/Nobara/graphs/contributors" alt="GitHub contributors"> <img src="https://img.shields.io/github/contributors/ryomen-sukuna/Nobara?style=flat&logo=github" /> </a>
+<a href="https://github.com/Ryomen-Sukuna/Nobara" alt="GitHub issues"> <img src="https://img.shields.io/github/issues-raw/ryomen-sukuna/Nobara?style=flat&logo=github&color=yellow" /> </a>
+</p>
+<p align="center">
+<a href="https://www.python.org/" alt="made-with-python"> <img src="https://img.shields.io/badge/Made%20with-Python-1f425f.svg?style=flat&logo=python&color=blue" /> </a>
+<a href="https://github.com/Ryomen-Sukuna/Nobara/blob/master/LICENSE" alt="GPLv3 license"> <img src="https://img.shields.io/badge/License-GPLv3-blue.svg" /> </a>
+<a href="https://github.com/Ryomen-Sukuna/Nobara" alt="GitHub repo size"> <img src="https://img.shields.io/github/repo-size/ryomen-sukuna/Nobara" /> </a>
+<a href="https://makeapullrequest.com" alt="PRs Welcome"> <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" /> </a>
+<a href="http://hits.dwyl.com/ryomen-sukuna/Nobara" alt="HitCount"> <img src="http://hits.dwyl.com/ryomen-sukuna/Nobara.svg" /> </a>
+</p>
+<p align="center">
+<a href="https://t.me/NobaraUpdates" alt="Telegram!"> <img src="https://aleen42.github.io/badges/src/telegram.svg" /> </a>
+<a href="" alt="Ryomen-Sukuna"> <img src="https://img.shields.io/badge/Built%20by-Sukuna-blue" /> </a>
+<a href="https://t.me/Anomaliii" alt="Donate!"> <img src="https://aleen42.github.io/badges/src/telegram.svg" /> </a>
+<a href="https://github.com/Ryomen-Sukuna/Nobara/graphs/commit-activity" alt="Maintenance"> <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" /> </a>
+<a href="https://www.codacy.com/gh/Ryomen-Sukuna/Nobara/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Ryomen-Sukuna/Nobara&amp;utm_campaign=Badge_Grade">
+<img src="https://app.codacy.com/project/badge/Grade/5c121a363d734496846820ee8006c527"/></a>
+</p>
 
 A modular telegram Python bot running on python3 with an sqlalchemy database.
 
@@ -47,6 +61,8 @@ For queries or any issues regarding the bot please open an issue ticket or visit
 
 ## Credits 📍
 + [Dank-Del](https://github.com/Dank-del) for base this bot
-+ [TsunayoshiSawada](https://github.com/SawadaTsunayoshi) 
++ [TsunayoshiSawada](https://github.com/SawadaTsunayoshi) for others modules
++ [userbotindo](https://github.com/userbotindo/UserIndoBot) for weather 
++ [Mr-Dark-Prince](https://github.com/Mr-Dark-Prince) for music 
 + Well, it's all in the commit history 
 Feel free to open pull requests should any be missing.
