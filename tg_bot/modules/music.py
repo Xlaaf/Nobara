@@ -13,8 +13,8 @@ from pyrogram import filters
 from tg_bot import kp
 from youtube_search import YoutubeSearch
 from tg_bot import kp as nobara
-from tg_bot.pyrogram.dark import get_arg
-from tg_bot.pyrogram.errors import capture_err
+from tg_bot.pyroutils.dark import get_arg
+from tg_bot.pyroutils.errors import capture_err
 from tg_bot.modules.language import gs
 
 
