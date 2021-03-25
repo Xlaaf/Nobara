@@ -1,7 +1,10 @@
-# Pyrogram Module For Download Song From YouTube 
+# Pyrogram Module For Download Song From YouTube  
+# Thanks to @infinity_bots - Williambutcherbot
 # 🍀 © @Mr_Dark_Prince
 # ⚠️ Do not edit this lines
+
 import os
+import wget
 import requests
 import aiohttp
 import youtube_dl
@@ -9,7 +12,9 @@ import youtube_dl
 from pyrogram import filters
 from tg_bot import kp
 from youtube_search import YoutubeSearch
-from tg_bot.pyrogram.errors import capture_err
+from tg_bot import kp as nobara
+from tg_bot.pyroutils.dark import get_arg
+from tg_bot.pyroutils.errors import capture_err
 from tg_bot.modules.language import gs
 
 
@@ -74,6 +79,33 @@ def song(client, message):
         os.remove(thumb_name)
     except Exception as e:
         print(e)
+
+        
+@nobara.on_message(filters.command("saavn"))
+async def song(client, message):
+    message.chat.id
+    message.from_user["id"]
+    args = get_arg(message) + " " + "song"
+    if args.startswith(" "):
+        await message.reply("<b>Enter song name❗</b>")
+        return ""
+    m = await message.reply_text(
+        "Downloading your song,\nPlz wait ⏳️"
+    )
+    try:
+        r = requests.get(f"https://snobybuddymusic.herokuapp.com/result/?query={args}")
+    except Exception as e:
+        await m.edit(str(e))
+        return
+    sname = r.json()[0]["song"]
+    slink = r.json()[0]["media_url"]
+    ssingers = r.json()[0]["singers"]
+    file = wget.download(slink)
+    ffile = file.replace("mp4", "m4a")
+    os.rename(file, ffile)
+    await message.reply_audio(audio=ffile, title=sname, performer=ssingers)
+    os.remove(ffile)
+    await m.delete()
 
 def get_help(chat):
     return gs(chat, "music_help")
