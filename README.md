@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="https://telegra.ph/file/2ce2e9e84a55d3535f599.jpg">
+  <img src="https://i.ibb.co/cbLj4KQ/0996c547506b80696f5091dc4829bfe0.gif">
 </p>
 
-# Kugisaki Nobara
+# Nobara // Nobara Robot
 
 <p align="center">
 - x -|│  “	Just some code who is a bot for fun. ”  │| - x -
