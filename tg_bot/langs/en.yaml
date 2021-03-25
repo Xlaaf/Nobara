@@ -105,7 +105,7 @@ bans_help: |
 
     - /kickme: kicks the user who issued the command
 
-     *Admin only:*
+    *Admin only:*
     - /ban <userhandle>: bans a user. (via handle, or reply)
     - /tban <userhandle> x(m/h/d): bans a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
     - /unban <userhandle>: unbans a user. (via handle, or reply)
@@ -225,7 +225,7 @@ antispam_help: |
 
      Anti-Spam, used by bot devs to ban spammers across all groups. This helps protect
      you and your groups by removing spam flooders as quickly as possible.
-     *Note:* Users can appeal gbans or report spammers at @YorkTownEagleUnion
+     *Note:* Users can appeal gbans or report spammers at @ZeroBotSupport
 
      Nobara also integrates @Spamwatch and @Intellivoid's SpamProtectionBot API to remove Spammers as much as possible from your chatroom!
      *What is SpamWatch?*
@@ -333,15 +333,20 @@ misc_help: |
       • /setuser <username>: sets your last.fm username.
       • /clearuser: removes your last.fm username from the bot's database.
       • /lastfm: returns what you're scrobbling on last.fm.
-      
+      ───────────────────────────────
+      *Karma*
+      • <UPVOTE> - Use upvote keywords like "+", "+1", "thanks" etc to upvote a message.
+      • <DOWNVOTE> - Use downvote keywords like "-", "-1", etc to downvote a message.
+      Reply to a message with /karma to check a user's karma
+      Send /karma without replying to any message to chek karma list of top 10 users
+
 music_help: |      
 
       *You can either enter just the song name or both the artist and song
       name. *
       
-      -> /song [song name] :Uploads the song in it's best quality available
-    
-      × Ex: `/song Faded Alan Walker`
+      • /song <song name>: Uploads the song in it's best quality available.
+      • /saavn <song name>: To Download Music From Saavn.
 
 muting_help: |
 
@@ -381,7 +386,7 @@ reports_help: |
         • @admin: reply to a message to report it to admins.
          *NOTE:* Neither of these will get triggered if used by admins.
 
-         *Admins only:*
+          *Admins only:*
           • /reports <on/off>: change report setting, or view current status.
           • If done in pm, toggles your status.
           • If in group, toggles that groups's status.
@@ -399,7 +404,7 @@ stickers_help: |
 rules_help: |
 
       • /rules: get the rules for this chat.
-       *Admins only:*
+      *Admins only:*
       • /setrules <your rules here>: set the rules for this chat.
       • /clearrules: clear the rules for this chat.
 
@@ -426,14 +431,14 @@ warns_help: |
 
 weather_help: |
 
-     *Weather module:*
+      *Weather module:*
       • /weather <city>: Gets weather information of particular place!
 
       \* To prevent spams weather command and the output will be deleted after 30 seconds.
 
 greetings_help: |
 
-      *Admins only:*
+       *Admins only:*
        • /welcome <on/off>: enable/disable welcome messages.
        • /welcome: shows current welcome settings.
        • /welcome noformat: shows current welcome settings, without the formatting - useful to recycle your welcome messages!
@@ -446,9 +451,9 @@ greetings_help: |
        • /welcomemutehelp: gives information about welcome mutes.
        • /cleanservice <on/off: deletes telegrams welcome/left service messages.
        *Example:*
-      user joined chat, user left chat.
+       user joined chat, user left chat.
 
-      *Welcome markdown:*
+       *Welcome markdown:*
        • /welcomehelp: view more formatting information for custom welcome/goodbye messages.
 
 nlp_help: |
@@ -456,7 +461,7 @@ nlp_help: |
        *Chatroom Spam Prediction*
        This feature uses @Intellivoid's Coffeehouse AI to
        process chat messages and detect spam.
-       This comes under Coffehouse' NLP. Learn more about
+       This comes under Coffehouse NLP. Learn more about
        it [here](https://docs.intellivoid.net/coffeehouse/v1/nlp/spam_prediction/chatroom)
        *Command:*
        • /nlpstat <on/off/yes/no>: toggle NLP in your chat.
