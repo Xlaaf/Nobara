@@ -9,12 +9,12 @@
 </p>
 
 <p align="center">
-<a href="https://github.com/Ryomen-Sukuna/Nobara" alt="GitHub closed issues"> <img src="https://img.shields.io/github/issues-closed-raw/ryomen-sukuna/Nobara?style=flat&logo=github&color=success" /> </a>
+<a href="https://github.com/Ryomen-Sukuna/Nobara" alt="GitHub closed issues"> <img src="https://img.shields.io/github/issues-closed-raw/ryomen-sukuna/nobara?style=flat&logo=github&color=success" /> </a>
 <a href="https://github.com/Ryomen-Sukuna/Nobara/network/members" alt="GitHub forks"> <img src="https://img.shields.io/github/forks/Ryomen-Sukuna/Nobara?label=Forks&logo=github" /> </a>
-<a href="https://github.com/Ryomen-Sukuna/Nobara" alt="GitHub closed pull requests"> <img src="https://img.shields.io/github/issues-pr-closed-raw/ryomen-sukuna/Nobara?color=success" /> </a>
-<a href="https://github.com/Ryomen-Sukuna/Nobara" alt="GitHub commit activity"> <img src="https://img.shields.io/github/commit-activity/m/ryomen-sukuna/Nobara" /> </a>
-<a href="https://github.com/Ryomen-Sukuna/Nobara/graphs/contributors" alt="GitHub contributors"> <img src="https://img.shields.io/github/contributors/ryomen-sukuna/Nobara?style=flat&logo=github" /> </a>
-<a href="https://github.com/Ryomen-Sukuna/Nobara" alt="GitHub issues"> <img src="https://img.shields.io/github/issues-raw/ryomen-sukuna/Nobara?style=flat&logo=github&color=yellow" /> </a>
+<a href="https://github.com/Ryomen-Sukuna/Nobara" alt="GitHub closed pull requests"> <img src="https://img.shields.io/github/issues-pr-closed-raw/ryomen-sukuna/nobara?color=success" /> </a>
+<a href="https://github.com/Ryomen-Sukuna/Nobara" alt="GitHub commit activity"> <img src="https://img.shields.io/github/commit-activity/m/ryomen-sukuna/nobara" /> </a>
+<a href="https://github.com/Ryomen-Sukuna/Nobara/graphs/contributors" alt="GitHub contributors"> <img src="https://img.shields.io/github/contributors/ryomen-sukuna/nobara?style=flat&logo=github" /> </a>
+<a href="https://github.com/Ryomen-Sukuna/Nobara" alt="GitHub issues"> <img src="https://img.shields.io/github/issues-raw/ryomen-sukuna/nobara?style=flat&logo=github&color=yellow" /> </a>
 </p>
 <p align="center">
 <a href="https://www.python.org/" alt="made-with-python"> <img src="https://img.shields.io/badge/Made%20with-Python-1f425f.svg?style=flat&logo=python&color=blue" /> </a>
