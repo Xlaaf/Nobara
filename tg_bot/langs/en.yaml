@@ -333,13 +333,7 @@ misc_help: |
       • /setuser <username>: sets your last.fm username.
       • /clearuser: removes your last.fm username from the bot's database.
       • /lastfm: returns what you're scrobbling on last.fm.
-      ───────────────────────────────
-      *Karma*
-      • <UPVOTE> - Use upvote keywords like "+", "+1", "thanks" etc to upvote a message.
-      • <DOWNVOTE> - Use downvote keywords like "-", "-1", etc to downvote a message.
-      Reply to a message with /karma to check a user's karma
-      Send /karma without replying to any message to chek karma list of top 10 users
-
+ 
 music_help: |      
 
       *You can either enter just the song name or both the artist and song
