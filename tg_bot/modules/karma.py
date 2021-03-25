@@ -8,6 +8,7 @@ from tg_bot.pyroutils.filter_groups import karma_positive_group, karma_negative_
 from tg_bot.modules.languages import gs
 from pyrogram import filters
 
+
 regex_upvote = r"^((?i)\+|\+\+|\+1|thx|tnx|ty|thank you|thanx|thanks|pro|cool|good|👍)$"
 regex_downvote = r"^(\-|\-\-|\-1|👎)$"
 
@@ -111,4 +112,4 @@ async def karma(_, message):
 def get_help(chat):
     return gs(chat, "misc_help")
     
-__mod_name__ = "Karma"         
+__mod_name__ = "Karma"
