@@ -58,21 +58,21 @@ def inlinequery(update: Update, _) -> None:
             "title": "Account info on Nobara",
             "description": "Look up a Telegram account in Nobara database",
             "message_text": "Click the button below to look up a person in Nobara database using their Telegram ID",
-            "thumb_urL": "https://telegra.ph/file/a444a36c4d6a427769445.jpg",
+            "thumb_urL": "https://telegra.ph/file/c85e07b58f5b3158b529a.jpg",
             "keyboard": ".info ",
         },
         {
             "title": "About",
             "description": "Know about Nobara",
             "message_text": "Click the button below to get to know about Nobara.",
-            "thumb_urL": "https://telegra.ph/file/a444a36c4d6a427769445.jpg",
+            "thumb_urL": "https://telegra.ph/file/c85e07b58f5b3158b529a.jpg",
             "keyboard": ".about ",
         },
         {
             "title": "Anilist",
             "description": "Search anime and manga on AniList.co",
             "message_text": "Click the button below to search anime and manga on AniList.co",
-            "thumb_urL": "https://telegra.ph/file/a444a36c4d6a427769445.jpg",
+            "thumb_urL": "https://telegra.ph/file/c85e07b58f5b3158b529a.jpg",
             "keyboard": ".anilist ",
         },
     ]
@@ -158,33 +158,39 @@ def inlineinfo(query: str, update: Update, context: CallbackContext) -> None:
     except:
         pass  # don't crash if api is down somehow...
 
-    try:
-        status = client.raw_output(int(user.id))
-        ptid = status["results"]["private_telegram_id"]
-        op = status["results"]["attributes"]["is_operator"]
-        ag = status["results"]["attributes"]["is_agent"]
-        wl = status["results"]["attributes"]["is_whitelisted"]
-        ps = status["results"]["attributes"]["is_potential_spammer"]
-        sp = status["results"]["spam_prediction"]["spam_prediction"]
-        hamp = status["results"]["spam_prediction"]["ham_prediction"]
-        blc = status["results"]["attributes"]["is_blacklisted"]
-        if blc:
-            blres = status["results"]["attributes"]["blacklist_reason"]
-        else:
-            blres = None
+    apst = requests.get(f'https://api.intellivoid.net/spamprotection/v1/lookup?query={context.bot.username}')
+    api_status = apst.status_code
+    if (api_status == 200):
+        try:
+            status = client.raw_output(int(user.id))
+            ptid = status["results"]["private_telegram_id"]
+            op = status["results"]["attributes"]["is_operator"]
+            ag = status["results"]["attributes"]["is_agent"]
+            wl = status["results"]["attributes"]["is_whitelisted"]
+            ps = status["results"]["attributes"]["is_potential_spammer"]
+            sp = status["results"]["spam_prediction"]["spam_prediction"]
+            hamp = status["results"]["spam_prediction"]["ham_prediction"]
+            blc = status["results"]["attributes"]["is_blacklisted"]
+            if blc:
+                blres = status["results"]["attributes"]["blacklist_reason"]
+            else:
+                blres = None
+            text += "\n\n<b>SpamProtection:</b>"
+            text += f"<b>\nPrivate Telegram ID:</b> <code>{ptid}</code>\n"
+            text += f"<b>Operator:</b> <code>{op}</code>\n"
+            text += f"<b>Agent:</b> <code>{ag}</code>\n"
+            text += f"<b>Whitelisted:</b> <code>{wl}</code>\n"
+            text += f"<b>Spam Prediction:</b> <code>{sp}</code>\n"
+            text += f"<b>Ham Prediction:</b> <code>{hamp}</code>\n"
+            text += f"<b>Potential Spammer:</b> <code>{ps}</code>\n"
+            text += f"<b>Blacklisted:</b> <code>{blc}</code>\n"
+            text += f"<b>Blacklist Reason:</b> <code>{blres}</code>\n"
+        except HostDownError:
+            text += "\n\n<b>SpamProtection:</b>"
+            text += "\nCan't connect to Intellivoid SpamProtection API\n"
+    else:
         text += "\n\n<b>SpamProtection:</b>"
-        text += f"<b>\nPrivate Telegram ID:</b> <code>{ptid}</code>\n"
-        text += f"<b>Operator:</b> <code>{op}</code>\n"
-        text += f"<b>Agent:</b> <code>{ag}</code>\n"
-        text += f"<b>Whitelisted:</b> <code>{wl}</code>\n"
-        text += f"<b>Spam Prediction:</b> <code>{sp}</code>\n"
-        text += f"<b>Ham Prediction:</b> <code>{hamp}</code>\n"
-        text += f"<b>Potential Spammer:</b> <code>{ps}</code>\n"
-        text += f"<b>Blacklisted:</b> <code>{blc}</code>\n"
-        text += f"<b>Blacklist Reason:</b> <code>{blres}</code>\n"
-    except HostDownError:
-        text += "\n\n<b>SpamProtection:</b>"
-        text += "\nCan't connect to Intellivoid SpamProtection API\n"
+        text += f"\n<code>API RETURNED: {api_status}</code>\n"
 
     nation_level_present = False
 
@@ -250,7 +256,7 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
     user = context.bot.get_chat(user_id)
     sql.update_user(user.id, user.username)
     about_text = f"""
-    Nobara (@{context.bot.username})
+    Kigyo (@{context.bot.username})
     Maintained by [ZERO](t.me/Anomaliii)
     Built with ❤️ using python-telegram-bot v{str(__version__)}
     Running on Python {python_version()}
@@ -265,11 +271,11 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
                 ),
                 InlineKeyboardButton(
                     text="Channel",
-                    url=f"https://t.me/NobaraUpdates",
+                    url=f"https://t.me/ZeroBotSupport",
                 ),
 
             ],
-            [
+            [     
                 InlineKeyboardButton(
                     text="GitHub",
                     url="https://www.github.com/Dank-del/EnterpriseALRobot",
@@ -295,53 +301,58 @@ def spb(query: str, update: Update, context: CallbackContext) -> None:
     """Handle the inline query."""
     query = update.inline_query.query
     user_id = update.effective_user.id
-
-    try:
-        search = query.split(" ", 1)[1]
-    except IndexError:
-        search = user_id
-
-    if search:
-        srdata = search
+    srdata = None
+    apst = requests.get(f'https://api.intellivoid.net/spamprotection/v1/lookup?query={context.bot.username}')
+    api_status = apst.status_code
+    if (api_status != 200):
+        stats = f"API RETURNED {api_status}"
     else:
-        srdata = user_id
+        try:
+            search = query.split(" ", 1)[1]
+        except IndexError:
+            search = user_id
 
-    url = f"https://api.intellivoid.net/spamprotection/v1/lookup?query={srdata}"
-    r = requests.get(url)
-    a = r.json()
-    response = a["success"]
-    if response is True:
-        date = a["results"]["last_updated"]
-        stats = f"*◢ Intellivoid• SpamProtection Info*:\n"
-        stats += f' • *Updated on*: `{datetime.fromtimestamp(date).strftime("%Y-%m-%d %I:%M:%S %p")}`\n'
+        if search:
+            srdata = search
+        else:
+            srdata = user_id
 
-        if a["results"]["attributes"]["is_potential_spammer"] is True:
-            stats += f" • *User*: `USERxSPAM`\n"
-        elif a["results"]["attributes"]["is_operator"] is True:
-            stats += f" • *User*: `USERxOPERATOR`\n"
-        elif a["results"]["attributes"]["is_agent"] is True:
-            stats += f" • *User*: `USERxAGENT`\n"
-        elif a["results"]["attributes"]["is_whitelisted"] is True:
-            stats += f" • *User*: `USERxWHITELISTED`\n"
+        url = f"https://api.intellivoid.net/spamprotection/v1/lookup?query={srdata}"
+        r = requests.get(url)
+        a = r.json()
+        response = a["success"]
+        if response is True:
+            date = a["results"]["last_updated"]
+            stats = f"*◢ Intellivoid• SpamProtection Info*:\n"
+            stats += f' • *Updated on*: `{datetime.fromtimestamp(date).strftime("%Y-%m-%d %I:%M:%S %p")}`\n'
 
-        stats += f' • *Type*: `{a["results"]["entity_type"]}`\n'
-        stats += (
-            f' • *Language*: `{a["results"]["language_prediction"]["language"]}`\n'
-        )
-        stats += f' • *Language Probability*: `{a["results"]["language_prediction"]["probability"]}`\n'
-        stats += f"*Spam Prediction*:\n"
-        stats += f' • *Ham Prediction*: `{a["results"]["spam_prediction"]["ham_prediction"]}`\n'
-        stats += f' • *Spam Prediction*: `{a["results"]["spam_prediction"]["spam_prediction"]}`\n'
-        stats += f'*Blacklisted*: `{a["results"]["attributes"]["is_blacklisted"]}`\n'
-        if a["results"]["attributes"]["is_blacklisted"] is True:
+            if a["results"]["attributes"]["is_potential_spammer"] is True:
+                stats += f" • *User*: `USERxSPAM`\n"
+            elif a["results"]["attributes"]["is_operator"] is True:
+                stats += f" • *User*: `USERxOPERATOR`\n"
+            elif a["results"]["attributes"]["is_agent"] is True:
+                stats += f" • *User*: `USERxAGENT`\n"
+            elif a["results"]["attributes"]["is_whitelisted"] is True:
+                stats += f" • *User*: `USERxWHITELISTED`\n"
+
+            stats += f' • *Type*: `{a["results"]["entity_type"]}`\n'
             stats += (
-                f' • *Reason*: `{a["results"]["attributes"]["blacklist_reason"]}`\n'
+                f' • *Language*: `{a["results"]["language_prediction"]["language"]}`\n'
             )
-            stats += f' • *Flag*: `{a["results"]["attributes"]["blacklist_flag"]}`\n'
-        stats += f'*PTID*:\n`{a["results"]["private_telegram_id"]}`\n'
+            stats += f' • *Language Probability*: `{a["results"]["language_prediction"]["probability"]}`\n'
+            stats += f"*Spam Prediction*:\n"
+            stats += f' • *Ham Prediction*: `{a["results"]["spam_prediction"]["ham_prediction"]}`\n'
+            stats += f' • *Spam Prediction*: `{a["results"]["spam_prediction"]["spam_prediction"]}`\n'
+            stats += f'*Blacklisted*: `{a["results"]["attributes"]["is_blacklisted"]}`\n'
+            if a["results"]["attributes"]["is_blacklisted"] is True:
+                stats += (
+                    f' • *Reason*: `{a["results"]["attributes"]["blacklist_reason"]}`\n'
+                )
+                stats += f' • *Flag*: `{a["results"]["attributes"]["blacklist_flag"]}`\n'
+            stats += f'*PTID*:\n`{a["results"]["private_telegram_id"]}`\n'
 
-    else:
-        stats = "`cannot reach SpamProtection API`"
+        else:
+            stats = "`cannot reach SpamProtection API`"
 
     kb = InlineKeyboardMarkup(
         [
@@ -358,10 +369,11 @@ def spb(query: str, update: Update, context: CallbackContext) -> None:
             ],
         ])
 
+    a = "the entity was not found"
     results = [
         InlineQueryResultArticle(
             id=str(uuid4()),
-            title=f"SpamProtection API info of {srdata}",
+            title=f"SpamProtection API info of {srdata or a}",
             input_message_content=InputTextMessageContent(stats, parse_mode=ParseMode.MARKDOWN,
                                                           disable_web_page_preview=True),
             reply_markup=kb
