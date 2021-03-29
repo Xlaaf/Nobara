@@ -43,14 +43,14 @@ from tg_bot.modules.language import gs
 
 PM_START_TEXT = """
 Hi {}, my name is {}!
-I am an Anime themed group management bot with some fun extras [;)](https://telegra.ph/file/095d7e696096e21b06447.jpg)
+I am an Anime themed group management bot with some fun extras [;)](https://telegra.ph/file/7153aded9d313ba84650f.mp4)
 
 You can find the list of available commands with /help.
 """
 
 HELP_STRINGS = f"""
 
-*Main commands available*[:](https://telegra.ph/file/ce73ab56b1a357ef65af5.jpg)
+*Main commands available*[:](https://telegra.ph/file/9f6d5a5052dac88cecb64.mp4)
 
  -> /start: Starts me, can be used to check I'm alive or not.
  -> /help: PM's you this message.
@@ -60,7 +60,7 @@ HELP_STRINGS = f"""
 \nClick on the buttons below to get documentation about specific modules!"""   
    
 
-NOBARA_IMG = "https://i.ibb.co/PFk8PYm/0996c547506b80696f5091dc4829bfe0.gif"
+NOBARA_IMG = "https://telegra.ph/file/7153aded9d313ba84650f.mp4"
 
 
 IMPORTED = {}
@@ -201,7 +201,7 @@ def start(update: Update, context: CallbackContext):
                         [
                             InlineKeyboardButton(
                                 text=gs(chat.id, "support_chat_link_btn"),
-                                url=f"https://t.me/ZeroBotSupport",
+                                url=f"https://t.me/VohaUnion",
                             ),
                             InlineKeyboardButton(
                                 text=gs(chat.id, "src_btn"),
