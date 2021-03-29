@@ -51,21 +51,21 @@ def inlinequery(update: Update, _) -> None:
             "description": "Look up a person/bot/channel/chat on @Intellivoid SpamProtection API",
             "message_text": "Click the button below to look up a person/bot/channel/chat on @Intellivoid SpamProtection API using "
                             "username or telegram id",
-            "thumb_urL": "https://telegra.ph/file/3ce9045b1c7faf7123c67.jpg",
+            "thumb_urL": "https://telegra.ph/file/7153aded9d313ba84650f.mp4",
             "keyboard": ".spb ",
         },
         {
-            "title": "Account info on Nobara",
-            "description": "Look up a Telegram account in Nobara database",
-            "message_text": "Click the button below to look up a person in Nobara database using their Telegram ID",
-            "thumb_urL": "https://telegra.ph/file/c85e07b58f5b3158b529a.jpg",
+            "title": "Account info on Eris",
+            "description": "Look up a Telegram account in Eris database",
+            "message_text": "Click the button below to look up a person in Eris database using their Telegram ID",
+            "thumb_urL": "https://telegra.ph/file/7153aded9d313ba84650f.mp4",
             "keyboard": ".info ",
         },
         {
             "title": "About",
-            "description": "Know about Nobara",
-            "message_text": "Click the button below to get to know about Nobara.",
-            "thumb_urL": "https://telegra.ph/file/c85e07b58f5b3158b529a.jpg",
+            "description": "Know about Eris",
+            "message_text": "Click the button below to get to know about Eris.",
+            "thumb_urL": "https://telegra.ph/file/7153aded9d313ba84650f.mp4",
             "keyboard": ".about ",
         },
         {
@@ -225,7 +225,7 @@ def inlineinfo(query: str, update: Update, context: CallbackContext) -> None:
             [
                 InlineKeyboardButton(
                     text="Report Error",
-                    url=f"https://t.me/ZeroBotSupport",
+                    url=f"https://t.me/VohaUnion",
                 ),
                 InlineKeyboardButton(
                     text="Search again",
@@ -257,7 +257,7 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
     sql.update_user(user.id, user.username)
     about_text = f"""
     Kigyo (@{context.bot.username})
-    Maintained by [ZERO](t.me/Anomaliii)
+    Maintained by [Vb](t.me/daretu)
     Built with ❤️ using python-telegram-bot v{str(__version__)}
     Running on Python {python_version()}
     """
@@ -267,11 +267,11 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
             [
                 InlineKeyboardButton(
                     text="Support",
-                    url=f"https://t.me/ZeroBotSupport",
+                    url=f"https://t.me/VohaUnion",
                 ),
                 InlineKeyboardButton(
                     text="Channel",
-                    url=f"https://t.me/ZeroBotSupport",
+                    url=f"https://t.me/VohaUpdate",
                 ),
 
             ],
@@ -288,7 +288,7 @@ def about(query: str, update: Update, context: CallbackContext) -> None:
         InlineQueryResultArticle
             (
             id=str(uuid4()),
-            title=f"About Nobara (@{context.bot.username})",
+            title=f"About Eris (@{context.bot.username})",
             input_message_content=InputTextMessageContent(about_text, parse_mode=ParseMode.MARKDOWN,
                                                           disable_web_page_preview=True),
             reply_markup=kb
@@ -359,7 +359,7 @@ def spb(query: str, update: Update, context: CallbackContext) -> None:
             [
                 InlineKeyboardButton(
                     text="Report Error",
-                    url=f"https://t.me/ZeroBotSupport",
+                    url=f"https://t.me/VohaUnion",
                 ),
                 InlineKeyboardButton(
                     text="Search again",
@@ -503,7 +503,7 @@ def media_query(query: str, update: Update, context: CallbackContext) -> None:
                 [
                     InlineKeyboardButton(
                         text="Report error",
-                        url="t.me/ZeroBotSupport",
+                        url="t.me/VohaUnion",
                     ),
                     InlineKeyboardButton(
                         text="Search again",
