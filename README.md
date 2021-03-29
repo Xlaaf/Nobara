@@ -1,6 +1,5 @@
-<p align="center">
-  <img src="https://i.ibb.co/cbLj4KQ/0996c547506b80696f5091dc4829bfe0.gif">
-</p>
+[![Deploy](https://telegra.ph/file/a0aff5c31055234f295fc.mp4)](https://heroku.com/deploy?template=https://github.com/Xlaaf/KrustyRobot.git)
+
 
 # Nobara // Nobara Robot
 
@@ -55,6 +54,7 @@ The Support group can be reached out to at [Zero Union](https://t.me/ZeroBotSupp
 - *And finally* `python3 -m tg_bot`
 
 *Enjoy!*
+# Heroku Deploy
 
 
 For queries or any issues regarding the bot please open an issue ticket or visit us at [Zero Union](https://t.me/ZeroBotSupport)  
