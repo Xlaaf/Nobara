@@ -1,4 +1,4 @@
-[![Deploy](https://telegra.ph/file/a0aff5c31055234f295fc.mp4)](https://heroku.com/deploy?template=https://github.com/Xlaaf/KrustyRobot.git)
+[![Deploy](https://telegra.ph/file/a0aff5c31055234f295fc.mp4)](https://heroku.com/deploy?template=https://github.com/Xlaaf/Nobara.git)
 
 
 # Nobara // Nobara Robot
